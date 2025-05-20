@@ -1,0 +1,488 @@
+.register-akun {
+    background-color: #fffefd;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.register-akun .div {
+    background-color: #fffefd;
+    height: 900px;
+    position: relative;
+    width: 1440px;
+}
+
+.register-akun .overlap {
+    height: 900px;
+    left: 86px;
+    position: absolute;
+    top: 0;
+    width: 1354px;
+}
+
+.register-akun .overlap-group {
+    height: 900px;
+    left: 66px;
+    position: absolute;
+    top: 0;
+    width: 1288px;
+}
+
+.register-akun .vector {
+    height: 900px;
+    left: 498px;
+    position: absolute;
+    top: 0;
+    width: 790px;
+}
+
+.register-akun .background {
+    border: 1px solid;
+    border-color: #ffffff80;
+    border-radius: 33px / 31.5px;
+    height: 63px;
+    left: 1163px;
+    position: absolute;
+    top: 536px;
+    width: 66px;
+}
+
+.register-akun .background-2 {
+    border: 1px solid;
+    border-color: #ffffff80;
+    border-radius: 13.5px / 13px;
+    height: 26px;
+    left: 1215px;
+    position: absolute;
+    top: 44px;
+    width: 27px;
+}
+
+.register-akun .background-3 {
+    border: 1px solid;
+    border-color: #ffffff80;
+    border-radius: 20.5px / 19.5px;
+    height: 39px;
+    left: 889px;
+    position: absolute;
+    top: 61px;
+    width: 41px;
+}
+
+.register-akun .form-registrasi {
+    height: 717px;
+    left: 0;
+    position: absolute;
+    top: 102px;
+    width: 454px;
+}
+
+.register-akun .header {
+    background-color: transparent;
+    height: 120px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 458px;
+}
+
+.register-akun .text-wrapper {
+    color: #000000;
+    font-family: "Open Sans-SemiBold", Helvetica;
+    font-size: 35px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+}
+
+.register-akun .p {
+    color: #b8b8b8;
+    font-family: "Open Sans-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 71px;
+    width: 454px;
+}
+
+.register-akun .email {
+    height: 119px;
+    left: 0;
+    position: absolute;
+    top: 157px;
+    width: 401px;
+}
+
+.register-akun .text-wrapper-2 {
+    color: #263a43;
+    font-family: "Nunito Sans-SemiBold", Helvetica;
+    font-size: 20px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 31.3px;
+    position: absolute;
+    top: 0;
+    width: 153px;
+}
+
+.register-akun .component {
+    background-color: #ffffff;
+    border: 0.6px solid;
+    border-color: #b1b1b1;
+    border-radius: 6px;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    top: 49px;
+    width: 399px;
+}
+
+.register-akun .text-wrapper-3 {
+    color: #bcbec0;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    height: 30px;
+    left: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 17px;
+}
+
+.register-akun .rectangle {
+    background-color: #53e28c;
+    border-radius: 0px 0px 5px 5px;
+    height: 4px;
+    left: -1px;
+    position: absolute;
+    top: 65px;
+    width: 399px;
+}
+
+.register-akun .username {
+    height: 118px;
+    left: 0;
+    position: absolute;
+    top: 297px;
+    width: 401px;
+}
+
+.register-akun .text-wrapper-4 {
+    color: #263a43;
+    font-family: "Nunito Sans-SemiBold", Helvetica;
+    font-size: 20px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 31.3px;
+    position: absolute;
+    top: 0;
+    width: 206px;
+}
+
+.register-akun .div-wrapper {
+    background-color: #ffffff;
+    border: 0.6px solid;
+    border-color: #b1b1b1;
+    border-radius: 6px;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    top: 48px;
+    width: 399px;
+}
+
+.register-akun .daftar {
+    background-color: #191d32;
+    border-radius: 6px;
+    box-shadow: 0px 4px 30px #263a4326;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    top: 647px;
+    width: 399px;
+}
+
+.register-akun .text-wrapper-5 {
+    color: #ffffff;
+    font-family: "Nunito Sans-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 169px;
+    letter-spacing: 0;
+    line-height: 31.3px;
+    position: absolute;
+    top: 18px;
+    width: 78px;
+}
+
+.register-akun .overlap-2 {
+    height: 163px;
+    left: 0;
+    position: absolute;
+    top: 438px;
+    width: 409px;
+}
+
+.register-akun .password {
+    height: 163px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 409px;
+}
+
+.register-akun .overlap-3 {
+    height: 163px;
+    position: relative;
+    width: 417px;
+}
+
+.register-akun .kolom-pengisian {
+    height: 163px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 417px;
+}
+
+.register-akun .overlap-4 {
+    background-color: #ffffff;
+    border: 0.6px solid;
+    border-color: #b1b1b1;
+    border-radius: 6px;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    top: 47px;
+    width: 399px;
+}
+
+.register-akun .text-wrapper-6 {
+    color: #8e8e8e;
+    font-family: "Nunito Sans-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 15px;
+    letter-spacing: 0;
+    line-height: 25.0px;
+    position: absolute;
+    top: 21px;
+    width: 181px;
+}
+
+.register-akun .eye {
+    height: 19px;
+    left: 352px;
+    overflow: hidden;
+    position: absolute;
+    top: 24px;
+    width: 22px;
+}
+
+.register-akun .group-wrapper {
+    background-image: url(./group.png);
+    background-size: 100% 100%;
+    height: 12px;
+    position: relative;
+    top: 3px;
+}
+
+.register-akun .group {
+    background-image: url(./image.png);
+    background-size: 100% 100%;
+    height: 8px;
+    left: 7px;
+    position: relative;
+    top: 2px;
+    width: 9px;
+}
+
+.register-akun .text-wrapper-7 {
+    color: #8e8e8e;
+    font-family: "Nunito Sans-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 266px;
+    letter-spacing: 0;
+    line-height: 25.0px;
+    position: absolute;
+    top: 138px;
+    width: 143px;
+}
+
+.register-akun .text-wrapper-8 {
+    color: #8e8e8e;
+    font-family: "Nunito Sans-Regular", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    left: 26px;
+    letter-spacing: 0;
+    line-height: 21.9px;
+    position: absolute;
+    top: 139px;
+    width: 134px;
+}
+
+.register-akun .text-wrapper-9 {
+    color: #263a43;
+    font-family: "Nunito Sans-SemiBold", Helvetica;
+    font-size: 20px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 31.3px;
+    position: absolute;
+    top: 0;
+    width: 240px;
+}
+
+.register-akun .rectangle-2 {
+    background-color: #c4c4c4;
+    border-radius: 2px;
+    height: 14px;
+    left: 0;
+    position: absolute;
+    top: 144px;
+    width: 15px;
+}
+
+.register-akun .keamanan-password {
+    height: 25px;
+    left: 291px;
+    position: absolute;
+    top: 3px;
+    width: 110px;
+}
+
+.register-akun .overlap-5 {
+    background-color: #d4ffe4;
+    border-radius: 18px;
+    height: 25px;
+    position: relative;
+    width: 108px;
+}
+
+.register-akun .text-wrapper-10 {
+    color: #008a26;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 32px;
+    letter-spacing: 0;
+    line-height: 18.8px;
+    position: absolute;
+    top: 3px;
+    white-space: nowrap;
+}
+
+.register-akun .masuk {
+    height: 50px;
+    left: 830px;
+    position: absolute;
+    top: 517px;
+    width: 125px;
+}
+
+.register-akun .overlap-6 {
+    border-radius: 40px;
+    height: 50px;
+    position: relative;
+}
+
+.register-akun .rectangle-3 {
+    border: 1px solid;
+    border-color: #ffffff;
+    border-radius: 40px;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 125px;
+}
+
+.register-akun .text-wrapper-11 {
+    color: #ffffff;
+    font-family: "Nunito Sans-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 33px;
+    letter-spacing: 0;
+    line-height: 31.3px;
+    position: absolute;
+    top: 9px;
+    width: 78px;
+}
+
+.register-akun .awan {
+    height: 195px;
+    left: 1054px;
+    position: absolute;
+    top: 705px;
+    width: 234px;
+}
+
+.register-akun .img {
+    height: 213px;
+    left: 403px;
+    position: absolute;
+    top: 687px;
+    width: 678px;
+}
+
+.register-akun .text-wrapper-12 {
+    color: #ffffff;
+    font-family: "Poppins-ExtraBold", Helvetica;
+    font-size: 52px;
+    font-weight: 800;
+    height: 78px;
+    left: 634px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 270px;
+}
+
+.register-akun .untuk-tetap {
+    color: #ffffff;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 28px;
+    font-weight: 300;
+    height: 84px;
+    left: 605px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 368px;
+}
+
+.register-akun .text-wrapper-13 {
+    color: #191d32;
+    font-family: "Roboto-Bold", Helvetica;
+    font-size: 30px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 33px;
+    white-space: nowrap;
+}
+
+.register-akun .navigasi {
+    height: 21px;
+    left: 32px;
+    position: absolute;
+    top: 40px;
+    width: 32px;
+}

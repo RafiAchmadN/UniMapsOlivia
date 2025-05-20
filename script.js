@@ -6,14 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mapPlaceholder.alt = 'Surabaya Map';
     mapPlaceholder.className = 'img-fluid';
     
-    // Replace the placeholder in the HTML
-    const mapContainer = document.querySelector('.map-container');
-    if (mapContainer) {
-        const existingImg = mapContainer.querySelector('img');
-        if (existingImg) {
-            mapContainer.replaceChild(mapPlaceholder, existingImg);
-        }
-    }
+
     
     // Add smooth scrolling for all links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

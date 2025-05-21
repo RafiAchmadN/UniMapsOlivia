@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Register - UniMap</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="LoginStyle.css" />
+    <style>
+        .notif {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .notif.success {
+            background-color: #d4ffe4;
+            color: #008a26;
+        }
+        
+        .notif.error {
+            background-color: #ffe4e4;
+            color: #a80000;
+        }
+        
+        .input-wrapper input:focus+.rectangle {
+            background-color: #53e28c;
+        }
+        
+        .input-wrapper {
+            position: relative;
+        }
+        
+        .eye-icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        
+        .form-options {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+            margin-left: 5px;
+            gap: 10px;
+        }
+        
+        .social-login-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        
+        .social-button {
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            background-color: #fff;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-akun">
+        <div class="form-login">
+            <h2>Selamat Datang Kembali!</h2>
+            <p>Silakan login untuk mengakses akun Anda.</p>
+
+            <form action="login.php" method="POST">
+                <label for="email">Alamat Email</label>
+                <div class="input">
+                    <input type="email" id="email" name="email" placeholder="emailanda@example.com" required />
+                </div>
+
+                <label for="password">Password</label>
+                <div class="input">
+                    <input type="password" id="password" name="password" placeholder="Ketik password anda" required />
+                    <div class="eye-icon" onclick="togglePasswordVisibility()">
+
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label><input type="checkbox" name="remember" /> Simpan data login?</label>
+                    <a href="#">Lupa password?</a>
+                </div>
+
+                <button type="submit" class="daftar">Masuk</button> Belum punya akun?
+                <a href="Register_Unimap.html">Daftar di sini</a>
+                </p>
+
+                <p>Atau lanjutkan dengan</p>
+                <div class="social-login-buttons">
+                    <div class="social-button">
+                        <img src="img/google.svg" alt="" height="20" />
+                    </div>
+                    <div class="social-button">
+                        <img src="img/facebook.svg" alt="" height="20" />
+                    </div>
+                    <div class="social-button">
+                        <img src="img/tiktok.svg" alt="" height="20" />
+                    </div>
+                </div>
+        </div>
+        </form>
+    </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -17,12 +17,11 @@
 <script>
   const map = L.map('map', {minZoom:12, maxZoom:15}).setView([-7.320, 112.72], 9);
   
-
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  fetch('./Segmentasi Kecamatan.geojson')
+  fetch('./Segmentasi_Kecamatan.geojson')
     .then(response => response.json())
     .then(data => {
       L.geoJSON(data, {

@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = "#Syafiq29"; // ganti sesuai password root kamu
-$db   = "login_db";     // ganti sesuai nama database kamu
+$pass = ""; // ganti sesuai password root kamu
+$db   = "Registrasi";     // ganti sesuai nama database kamu
 
 // Buat koneksi
 $conn = new mysqli($host, $user, $pass, $db);

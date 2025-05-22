@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="styleguide.css" />
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register - UniMap</title>
+    <link rel="stylesheet" href="globals.css">
+    <link rel="stylesheet" href="styleguide.css">
+    <link rel="stylesheet" href="RegistStyle.css">
     <style>
         .notif {
             margin-top: 20px;
@@ -25,6 +26,29 @@
             background-color: #ffe4e4;
             color: #a80000;
         }
+        
+        .input-wrapper {
+            position: relative;
+        }
+        
+        .input-wrapper input:focus+.rectangle {
+            background-color: #53e28c;
+        }
+        
+        .form-options {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+            margin-left: 5px;
+            gap: 10px;
+        }
+        
+        .eye-icon {
+            position: absolute;
+            top: 23px;
+            right: 15px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -33,7 +57,7 @@
         <div class="div">
             <div class="overlap">
                 <div class="overlap-group">
-                    <img class="vector" src="img/vector.svg" alt="vector background" />
+                    <img class="vector" src="img/vector.svg" alt="vector background">
                     <div class="background"></div>
                     <div class="background-2"></div>
                     <div class="background-3"></div>
@@ -43,11 +67,13 @@
                             <div class="text-wrapper">Register akun anda</div>
                             <p class="p">Dapatkan fitur tambahan seperti menyimpan lokasi favorit, mendapatkan rekomendasi pribadi, dan banyak lagi.</p>
                         </header>
+
                         <form action="register.php" method="POST">
                             <div class="email">
                                 <label class="text-wrapper-2" for="email">Alamat Email</label>
                                 <div class="component">
-                                    <input type="email" name="email" id="email" placeholder="12345678@gmail.com" class="text-wrapper-3" required />
+                                    <input type="email" name="email" id="email" placeholder="12345678@gmail.com" class="text-wrapper-3" required>
+
                                     <div class="rectangle"></div>
                                 </div>
                             </div>
@@ -55,7 +81,7 @@
                             <div class="username">
                                 <label class="text-wrapper-4" for="username">Masukan nama anda</label>
                                 <div class="div-wrapper">
-                                    <input type="text" name="username" id="username" placeholder="ABCD_01" class="text-wrapper-3" required />
+                                    <input type="text" name="username" id="username" placeholder="ABCD_01" class="text-wrapper-3" required>
                                 </div>
                             </div>
 
@@ -65,60 +91,72 @@
                                         <div class="kolom-pengisian">
                                             <label class="text-wrapper-9" for="password">Masukan Password anda</label>
                                             <div class="overlap-4">
-                                                <input type="password" name="password" id="password" placeholder="Type your password here" class="text-wrapper-6" required />
+                                                <input type="password" name="password" id="password" placeholder="Ketik password anda" class="text-wrapper-6" required oninput="checkStrength(this.value)">
                                                 <div class="eye">
                                                     <div class="group-wrapper">
                                                         <div class="group"></div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="text-wrapper-7">Lupa Password ?</div>
                                             <div class="text-wrapper-8">
-                                                <label><input type="checkbox" name="remember" /> Simpan data login ?</label>
+                                                <label><input type="checkbox" name="remember"> Simpan data login ?</label>
                                             </div>
                                         </div>
-                                        <div class="rectangle-2"></div>
                                     </div>
                                 </div>
                                 <div class="keamanan-password">
                                     <div class="overlap-5">
-                                        <div class="text-wrapper-10">Strong..</div>
+                                        <div class="text-wrapper-10" id="strengthText">Kuat</div>
                                     </div>
                                 </div>
                             </div>
 
                             <button type="submit" class="daftar">
-                  <div class="text-wrapper-5">Daftar</div>
-                </button>
+                                <div class="text-wrapper-5">Daftar</div>
+                            </button>
 
-                            <!-- NOTIFIKASI SEMENTARA  -->
-                            <php if (isset($_GET[ 'status'])): ?>
-                                <div class="notif <?php echo $_GET['status'] === 'success' ? 'success' : 'error'; ?>">
-                                    <php echo $_GET[ 'status']==='success' ? 'Registrasi berhasil! Silakan login.' : 'Registrasi gagal. Silakan coba lagi.'; ?>
-                                </div>
-                                <php endif; ?>
-                        </form>
-                    </div>
-
-                    <div class="masuk">
-                        <a href="Lo">
-                            <div class="overlap-6">
-                                <div class="rectangle-3"></div>
-                                <div class="text-wrapper-11">Masuk</div>
+                            <div class="masuk">
+                                <a href="Login_Unimap.html">
+                                    <div class="overlap-6">
+                                        <div class="rectangle-3"></div>
+                                        <div class="text-wrapper-11">Masuk</div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
 
-                    <img class="awan" src="img/awan-1.svg" alt="awan1" />
-                    <img class="img" src="img/awan-2.svg" alt="awan2" />
-                    <div class="text-wrapper-12">Sudah Punya Akun ?</div>
-                    <p class="untuk-tetap">Untuk tetap terhubung dengan <br />kami silakan login dengan info pribadi anda</p>
+                            <img class="awan" src="img/awan-1.svg" alt="awan1">
+                            <img class="img" src="img/awan-2.svg" alt="awan2">
+                            <div class="text-wrapper-12">Sudah Punya Akun ?</div>
+                            <p class="untuk-tetap">Untuk tetap terhubung dengan <br>kami silakan login dengan info pribadi anda</p>
+                    </div>
+                    <div class="text-wrapper-13">UniMap</div>
                 </div>
-                <div class="text-wrapper-13">UniMap</div>
+                <img class="navigasi" src="img/navigasi.svg" alt="navigasi">
             </div>
-            <img class="navigasi" src="img/navigasi.svg" alt="navigasi" />
         </div>
-    </div>
+
+        <script>
+            function checkStrength(password) {
+                const strengthText = document.getElementById('strengthText');
+                if (password.length === 0) {
+                    strengthText.textContent = '';
+                    return;
+                }
+                const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
+                const mediumRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.{6,})");
+
+                if (strongRegex.test(password)) {
+                    strengthText.textContent = 'Kuat';
+                    strengthText.style.color = '#008a26';
+                } else if (mediumRegex.test(password)) {
+                    strengthText.textContent = 'Menengah';
+                    strengthText.style.color = '#e6a800';
+                } else {
+                    strengthText.textContent = 'Lemah';
+                    strengthText.style.color = '#a80000';
+                }
+            }
+        </script>
 </body>
 
 </html>

@@ -1,42 +1,41 @@
 <?php
-// register.php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "database";
 
-// Sertakan file koneksi database
-require 'db_connect.php';
+$conn = mysqli_connect($host, $user, $pass, $dbname);
 
-// Periksa apakah form telah disubmit
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Ambil nilai form
-    $username = $_POST['username'];
-    $email    = $_POST['email'];
-    $password = $_POST['password'];
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
 
-    // Validasi dasar: cek input tidak kosong
-    if (empty($username) || empty($email) || empty($password)) {
-        echo "Error: Semua kolom harus diisi.";
-        exit();  // hentikan script jika validasi gagal
-    }
+$email = $_POST['email'];
+$username = $_POST['username'];
+$password = md5($_POST['password']);
 
-    // (Opsional) Validasi format email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Error: Format email tidak valid.";
-        exit();
-    }
+$cek = "SELECT * FROM registrasi WHERE email='$email'";
+$hasil = mysqli_query($conn, $cek);
 
-    // Enkripsi password sebelum disimpan
-    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-    // password_hash akan menghasilkan hash 60 karakter dengan algoritma BCRYPT:contentReference[oaicite:5]{index=5}
-
-    // Siapkan pernyataan SQL untuk insert data user baru
-    $sql = "INSERT INTO users (username, email, password) 
-            VALUES ('$username', '$email', '$passwordHash')";
-
-    if ($conn->query($sql) === TRUE) {
-        // Jika insert sukses
-        echo "Registrasi berhasil! Silakan <a href='login.html'>login</a>.";
+if (mysqli_num_rows($hasil) > 0) {
+    echo "<script>
+        alert('Email sudah digunakan. Silakan gunakan email lain.');
+        window.location.href='register.php';
+    </script>";
+} else {
+    $query = "INSERT INTO registrasi (nama, email, password) VALUES ('$username', '$email', '$password')";
+    if (mysqli_query($conn, $query)) {
+        echo "<script>
+            alert('Registrasi berhasil! Silakan login.');
+            window.location.href='Login_Unimap.html';
+        </script>";
     } else {
-        // Jika terjadi error (misal email sudah ada, dll)
-        echo "Registrasi gagal: " . $conn->error;
+        echo "<script>
+            alert('Gagal registrasi: " . mysqli_error($conn) . "');
+            window.location.href='register.php';
+        </script>";
     }
 }
+
+mysqli_close($conn);
 ?>

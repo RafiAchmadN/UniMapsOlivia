@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="keamanan-password">
                                     <div class="overlap-5">
-                                        <div class="text-wrapper-10" id="strengthText">Kuat</div>
+                                        <div class="text-wrapper-10" id="strengthText"></div>
                                     </div>
                                 </div>
                             </div>
@@ -135,28 +135,38 @@
             </div>
         </div>
 
-        <script>
-            function checkStrength(password) {
-                const strengthText = document.getElementById('strengthText');
-                if (password.length === 0) {
-                    strengthText.textContent = '';
-                    return;
-                }
-                const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
-                const mediumRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.{6,})");
+    <script>
+    function checkStrength(password) {
+        const strengthText = document.getElementById('strengthText');
 
-                if (strongRegex.test(password)) {
-                    strengthText.textContent = 'Kuat';
-                    strengthText.style.color = '#008a26';
-                } else if (mediumRegex.test(password)) {
-                    strengthText.textContent = 'Menengah';
-                    strengthText.style.color = '#e6a800';
-                } else {
-                    strengthText.textContent = 'Lemah';
-                    strengthText.style.color = '#a80000';
-                }
-            }
-        </script>
+        const hasUpper = /[A-Z]/.test(password);
+        const hasLower = /[a-z]/.test(password);
+        const hasNumber = /[0-9]/.test(password);
+        const hasSpecial = /[^A-Za-z0-9]/.test(password);
+        const length = password.length;
+
+        let strength = 0;
+        if (hasLower) strength++;
+        if (hasUpper) strength++;
+        if (hasNumber) strength++;
+        if (hasSpecial) strength++;
+        if (length >= 8) strength++;
+
+        if (length === 0) {
+            strengthText.textContent = '';
+            strengthText.className = '';
+        } else if (strength <= 2) {
+            strengthText.textContent = 'Lemah';
+            strengthText.className = 'strength-weak';
+        } else if (strength === 3 || strength === 4) {
+            strengthText.textContent = 'Menengah';
+            strengthText.className = 'strength-medium';
+        } else {
+            strengthText.textContent = 'Kuat';
+            strengthText.className = 'strength-strong';
+        }
+    }
+    </script>
 </body>
 
 </html>

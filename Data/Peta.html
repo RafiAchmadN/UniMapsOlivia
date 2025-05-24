@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Peta Kemiskinan Surabaya dengan Info Kecamatan</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 1000px; width: 100%;}
+    .legend {
+        padding: 6px 8px;
+        font: 14px/16px Arial, Helvetica, sans-serif;
+        background: white;
+        background: rgba(255,255,255,0.8);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        line-height: 18px;
+        color: #555;
+    }
+    .legend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.9;
+    }
+    /* CSS untuk panel info */
+    .info-panel {
+        padding: 8px 10px;
+        font: 14px/16px Arial, Helvetica, sans-serif;
+        background: white;
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        color: #333;
+    }
+    .info-panel h4 {
+        margin: 0 0 5px;
+        color: #777;
+        font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map', {minZoom:11, maxZoom:15}).setView([-7.3252, 112.7173], 12);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Fungsi untuk legenda warna (diambil dari skrip sebelumnya)
+  function getColorForLegend(jumlahMiskin) {
+    if (jumlahMiskin === undefined || jumlahMiskin === null || typeof jumlahMiskin === 'string') return '#808080';
+    const minVal = 100;
+    const maxVal = 1500;
+    if (jumlahMiskin <= minVal) return '#00FF00';
+    if (jumlahMiskin > maxVal) return '#FF0000';
+    const mid_point_for_yellow = (minVal + maxVal) / 2;
+    let r, g, b = 0;
+    if (jumlahMiskin <= mid_point_for_yellow) {
+        const ratio = (jumlahMiskin - minVal) / (mid_point_for_yellow - minVal);
+        r = Math.round(255 * ratio); g = 255;
+    } else {
+        const ratio = (jumlahMiskin - mid_point_for_yellow) / (maxVal - mid_point_for_yellow);
+        r = 255; g = Math.round(255 * (1 - ratio));
+    }
+    return `rgb(${r},${g},${b})`;
+  }
+
+  // --- Panel Informasi Kustom ---
+  const infoPanel = L.control();
+
+  infoPanel.onAdd = function (map) {
+      this._div = L.DomUtil.create('div', 'info-panel'); // buat div dengan kelas "info-panel"
+      this.update(); // panggil update untuk isi awal
+      return this._div;
+  };
+
+  // Metode untuk update isi panel info
+  infoPanel.update = function (props) {
+      let content = '<h4>Info Kecamatan</h4>';
+      if (props && props.NAMOBJ) {
+          content += `<b>${props.NAMOBJ}</b><br />`;
+          if (props.jumlah_miskin !== undefined && props.jumlah_miskin !== "Data tidak tersedia" && props.jumlah_miskin !== "Nama Kecamatan Tidak Ada") {
+              content += `Jumlah Miskin: ${Number(props.jumlah_miskin).toLocaleString()}`;
+          } else {
+              content += `Jumlah Miskin: ${props.jumlah_miskin || 'Data tidak tersedia'}`;
+          }
+      } else {
+          // Menggunakan data pertama dari file kemiskinan sebagai contoh awal jika tidak ada hover
+          // Anda perlu memastikan file Peta/data_kemiskinan.json dapat diakses atau data ini di-hardcode
+          // Untuk kemudahan, kita hardcode contoh dari data pertama Anda
+          // Kecamatan: ASEM ROWO, Jumlah Miskin: 433
+          content += 'Arahkan kursor ke kecamatan<br><br>';
+          content += '<b>Contoh Data:</b><br>';
+          content += 'Kecamatan: ASEM ROWO<br>';
+          content += 'Jumlah Miskin: 433';
+      }
+      this._div.innerHTML = content;
+  };
+  infoPanel.addTo(map);
+  // --- Akhir Panel Informasi Kustom ---
+
+
+  // Variabel untuk menyimpan layer GeoJSON
+  let geojsonLayer;
+
+  fetch('./Segmentasi_Kecamatan_Fill_Property.geojson') // Pastikan nama file ini benar
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok for Segmentasi_Kecamatan_Fill_Property.geojson. Status: ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+      geojsonLayer = L.geoJSON(data, {
+        style: function (feature) {
+          return {
+            fillColor: feature.properties.fill || '#808080',
+            weight: 1.5,
+            opacity: 1,
+            color: 'white', // Warna garis batas
+            fillOpacity: 0.7
+          };
+        },
+        onEachFeature: function (feature, layer) {
+          // Popup saat klik
+          if (feature.properties) {
+            let popupContent = `<strong>${feature.properties.NAMOBJ || 'Nama Tidak Ada'}</strong>`;
+            if (feature.properties.jumlah_miskin !== undefined) {
+                const jumlah = feature.properties.jumlah_miskin;
+                if (typeof jumlah === 'number') {
+                    popupContent += `<br/>Jumlah Miskin: ${jumlah.toLocaleString()}`;
+                } else {
+                    popupContent += `<br/>Jumlah Miskin: ${jumlah}`; // Jika sudah string seperti "Data tidak tersedia"
+                }
+            } else {
+                popupContent += `<br/>Jumlah Miskin: Data tidak tersedia`;
+            }
+            layer.bindPopup(popupContent);
+          }
+
+          // Interaksi hover untuk update panel info
+          layer.on({
+              mouseover: function (e) {
+                  const layer = e.target;
+                  // Style saat hover (opsional, bisa dikembangkan)
+                  layer.setStyle({
+                      weight: 3,
+                      color: '#666',
+                      dashArray: '',
+                      fillOpacity: 0.85
+                  });
+                  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                      layer.bringToFront();
+                  }
+                  infoPanel.update(layer.feature.properties); // Update panel info dengan properti fitur
+              },
+              mouseout: function (e) {
+                  geojsonLayer.resetStyle(e.target); // Kembalikan style ke asal
+                  // infoPanel.update(); // Kosongkan panel info atau tampilkan info default saat mouse out
+                                      // Untuk saat ini kita biarkan info terakhir tampil
+              },
+            //   click: function (e) { // Bisa juga update panel info saat klik
+            //       infoPanel.update(e.target.feature.properties);
+            //   }
+          });
+        }
+      }).addTo(map);
+    })
+    .catch(err => {
+        console.error('Gagal memuat GeoJSON:', err);
+        alert('Gagal memuat data peta kecamatan. Pastikan file GeoJSON (misal: Segmentasi_Kecamatan_Fill_Property.geojson) ada dan periksa console (F12).');
+    });
+
+    // Legenda Warna (diambil dari skrip sebelumnya)
+    var legend = L.control({position: 'bottomright'});
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 100, 400, 800, 1200, 1500],
+            labels = ['<strong>Jumlah Miskin</strong>'];
+
+        for (var i = 0; i < grades.length; i++) {
+            const color = getColorForLegend(grades[i] + (i === 0 ? 0 : 1));
+            const nextGrade = grades[i+1];
+            let rangeLabel;
+            if (i === 0 && grades[i] === 0) {
+                 rangeLabel = '&le; ' + grades[i+1];
+                 labels.push('<i style="background:' + getColorForLegend(grades[i+1]) + '"></i> ' + rangeLabel);
+                 i++;
+                 continue;
+            } else if (!nextGrade) {
+                rangeLabel = grades[i] + '+';
+            } else {
+                 rangeLabel = grades[i] + (nextGrade ? '&ndash;' + (nextGrade -1) : '+');
+            }
+             labels.push('<i style="background:' + color + '"></i> ' + rangeLabel);
+        }
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+    legend.addTo(map);
+
+</script>
+
+</body>
+</html>

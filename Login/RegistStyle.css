@@ -350,25 +350,28 @@
     left: 291px;
 }
 
-.register-akun .overlap-5 {
-    position: relative;
-    width: 108px;
-    height: 25px;
-    background-color: #ffffff;
-    border-radius: 18px;
-}
-
 .register-akun .text-wrapper-10 {
     position: absolute;
     top: 3px;
     left: 32px;
     font-family: "Poppins-Regular", Helvetica;
     font-weight: 400;
-    color: #ffffff;
+    color: #008a26;
     font-size: 12px;
     letter-spacing: 0;
     line-height: 18.8px;
     white-space: nowrap;
+}
+
+.popup-error {
+    display: none;
+    color: #d8000c;
+    background-color: #ffe4e4;
+    border: 1px solid #d8000c;
+    padding: 8px;
+    margin-top: 6px;
+    font-size: 14px;
+    border-radius: 4px;
 }
 
 .register-akun .masuk {

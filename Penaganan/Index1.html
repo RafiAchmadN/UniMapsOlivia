@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penanganan | UniMap</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="Popupstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">UniMap</div>
+            <nav class="nav">
+                <a href="#">Beranda</a>
+                <a href="#">Peta Interaktif</a>
+                <a href="#" class="active">Penanganan</a>
+                <a href="#">Kontribusi</a>
+                <a href="#">Kontak</a>
+            </nav>
+            <a href="#" class="btn-signup">Daftar Sekarang</a>
+        </div>
+    </header>
+
+    <main class="penanganan">
+        <section class="filter-section">
+            <div class="container">
+                <h1>Penanganan</h1>
+                <p>Program Kepelatihan dan Kemitraan Sosial di Kecamatan Surabaya</p>
+                <div class="filters">
+                    <select><option>Kecamatan</option></select>
+                    <select><option>Jenis Pelatihan</option></select>
+                    <select><option>Jenis Mitra/Komunitas</option></select>
+                    <button class="btn-apply">Terapkan Filter</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cards-section">
+            <div class="container cards">
+                <!-- Card Pelatihan -->
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <h2>Pelatihan Kewirausahaan</h2>
+                    <p class="meta">Genteng &bull; UMKM Genteng</p>
+                    <button class="btn-detail">Detail Informasi</button>
+                    <button class="join-btn">Masuk Komunitas</button>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h2>Pelatihan Keahlian Digital</h2>
+                    <p class="meta">Tambaksari &bull; Disnaker Tambaksari</p>
+                    <button class="btn-detail">Detail Informasi</button>
+                    <button class="join-btn">Masuk Komunitas</button>
+                </div>
+                <!-- Detail Informasi -->
+                <div class="modal detail-pelatihan" id="detailModal">
+                    <div class="detail-pelatihan__rectangle-1379">
+                        <div class="detail-pelatihan__detail-informasi-pelatihan">Detail Informasi Pelatihan</div>
+                        <div class="detail-pelatihan__pelatihan-kewirausahan">Pelatihan Kewirausahaan</div>
+                        <div class="detail-pelatihan__deskripsi-acara">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
+                        </div>
+                        <div class="detail-pelatihan__tanggalan">📅 25 Mei 2025 – (Bila berhari-hari)</div>
+                        <div class="detail-pelatihan__tanggalan2">👤 +62 8123 456 789</div>
+                        <button class="detail-pelatihan__tutup" id="detailClose">
+                        <div class="detail-pelatihan__rectangle-1386"></div>
+                        <div class="detail-pelatihan__tutup2">Tutup</div>
+                      </button>
+                    </div>
+                </div>
+
+                <!-- Join Komunitas -->
+                <div class="modal gabung-komunitas" id="joinModal">
+                    <div class="gabung-komunitas__rectangle-1379">
+                        <button class="gabung-komunitas__close" id="joinClose">×</button>
+                        <h2 class="gabung-komunitas__gabung-komunitas2">Gabung Komunitas</h2>
+                        <div class="gabung-komunitas__deskripsi-acara">
+                            Lorem Ipsum merupakan komunitas yang berfokus pada dukungan dan pengembangan ...
+                        </div>
+                        <button class="gabung-komunitas__rectangle-1386">
+                        <div class="gabung-komunitas__masuk">Bergabung Sekarang</div>
+                      </button>
+                    </div>
+                </div>
+
+                <script>
+                    // Detail modal handlers
+                    document.querySelectorAll('.btn-detail').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            document.getElementById('detailModal').classList.add('active');
+                        });
+                    });
+                    document.getElementById('detailClose').addEventListener('click', () => {
+                        document.getElementById('detailModal').classList.remove('active');
+                    });
+
+                    // Join modal handlers
+                    document.querySelectorAll('.join-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            document.getElementById('joinModal').classList.add('active');
+                        });
+                    });
+                    document.getElementById('joinClose').addEventListener('click', () => {
+                        document.getElementById('joinModal').classList.remove('active');
+                    });
+                </script>
+                <!-- More cards... -->
+            </div>
+            <div class="container pagination">
+                <button>Awal</button>
+                <button>Sebelumnya</button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>Selanjutnya</button>
+                <button>Terakhir</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-cols">
+            <div class="col">
+                <h3>Tentang UniMap</h3>
+                <p>Platform WebGIS interaktif untuk memetakan kemiskinan dan mendukung keputusan sosial.</p>
+            </div>
+            <div class="col">
+                <h3>Kontak Kami</h3>
+                <p>Email: info@unimap.sby.id</p>
+                <p>Telp: +62 31 1234 5678</p>
+            </div>
+            <div class="col">
+                <h3>Sosial Media & Mitra</h3>
+                <div class="social-icons">FB IG TW</div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

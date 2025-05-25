@@ -1,0 +1,61 @@
+<!-- Popup.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Feature</title>
+    <link rel="stylesheet" href="Popupstyle.css">
+</head>
+
+<body>
+    <!-- Detail Modal -->
+    <div class="modal detail-pelatihan" id="detailModal">
+        <div class="detail-pelatihan__rectangle-1379">
+            <div class="detail-pelatihan__rectangle-1448"></div>
+            <div class="detail-pelatihan__rectangle-1450"></div>
+            <div class="detail-pelatihan__detail-informasi-pelatihan">Detail Informasi Pelatihan</div>
+            <div class="detail-pelatihan__pelatihan-kewirausahan">Pelatihan Kewirausahaan</div>
+            <div class="detail-pelatihan__deskripsi-acara">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+            </div>
+            <div class="detail-pelatihan__tanggalan">Tanggal: 20 Mei 2025</div>
+            <div class="detail-pelatihan__tanggalan2">Waktu: 09.00 - 12.00</div>
+            <button class="detail-pelatihan__tutup" id="detailClose">
+        <div class="detail-pelatihan__rectangle-1386"></div>
+        <div class="detail-pelatihan__tutup2">Tutup</div>
+      </button>
+        </div>
+    </div>
+
+    <!-- Join Modal -->
+    <div class="modal gabung-komunitas" id="joinModal">
+        <div class="gabung-komunitas__rectangle-1379">
+            <div class="gabung-komunitas__gabung-komunitas2">Gabung Komunitas</div>
+            <div class="gabung-komunitas__deskripsi-acara">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+            </div>
+            <button class="gabung-komunitas__tutup" id="joinClose">
+        <div class="gabung-komunitas__rectangle-1386"></div>
+        <div class="gabung-komunitas__masuk">Tutup</div>
+      </button>
+        </div>
+    </div>
+
+    <script>
+        // Detail modal handlers
+        document.querySelectorAll('.detail-btn').forEach(btn => {
+            btn.addEventListener('click', () => document.getElementById('detailModal').classList.add('active'));
+        });
+        document.getElementById('detailClose').addEventListener('click', () => document.getElementById('detailModal').classList.remove('active'));
+
+        // Join modal handlers
+        document.querySelectorAll('.join-btn').forEach(btn => {
+            btn.addEventListener('click', () => document.getElementById('joinModal').classList.add('active'));
+        });
+        document.getElementById('joinClose').addEventListener('click', () => document.getElementById('joinModal').classList.remove('active'));
+    </script>
+</body>
+
+</html>

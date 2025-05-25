@@ -1,0 +1,187 @@
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    /* top:0; right:0; bottom:0; left:0 */
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.detail-pelatihan__rectangle-1379 {
+    position: relative;
+    width: 90vw;
+    max-width: 40rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 2.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Header Bar (reuse rectangle-1448) */
+
+.detail-pelatihan__rectangle-1448 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3.625rem;
+    background: #282f44;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+}
+
+.detail-pelatihan__detail-informasi-pelatihan {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+
+/* Title of Training */
+
+.detail-pelatihan__pelatihan-kewirausahan {
+    position: relative;
+    margin: 5rem 0 1rem;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: linear-gradient(to left, rgba(2, 7, 63, 0.2), #453a49);
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Content Area */
+
+.detail-pelatihan__deskripsi-acara,
+.detail-pelatihan__tanggalan,
+.detail-pelatihan__tanggalan2 {
+    position: relative;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.detail-pelatihan__deskripsi-acara {
+    padding-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.detail-pelatihan__tanggalan,
+.detail-pelatihan__tanggalan2 {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+
+/* Footer & Close Button */
+
+.detail-pelatihan__footer,
+.detail-pelatihan__tutup {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+}
+
+.detail-pelatihan__tutup {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border: 1px solid #282f44;
+    border-radius: 0.3125rem;
+    background: #ffffff;
+    color: #282f44;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+/* --------------------
+     Gabung Komunitas
+     -------------------- */
+
+.gabung-komunitas__rectangle-1379 {
+    background: #ffffff;
+    border-radius: 2.5rem;
+    width: 90vw;
+    max-width: 40rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.gabung-komunitas__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.gabung-komunitas__header {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.gabung-komunitas__header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(to left, rgba(2, 7, 63, 0.2), #453a49);
+    color: transparent;
+}
+
+.gabung-komunitas__deskripsi-acara {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.gabung-komunitas__rectangle-1386 {
+    display: block;
+    width: 100%;
+    max-width: 20rem;
+    margin: 0 auto;
+    padding: 0.75rem;
+    background: #EA2B1F;
+    border-radius: 0.9375rem;
+    border: 1px solid #282f44;
+    cursor: pointer;
+    text-align: center;
+}
+
+.gabung-komunitas__masuk {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+
+/* Responsive tweaks */
+
+@media (min-width: 768px) {
+    .detail-pelatihan__rectangle-1379,
+    .gabung-komunitas__rectangle-1379 {
+        width: 40rem;
+    }
+}

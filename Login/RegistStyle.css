@@ -318,7 +318,7 @@
     top: 139px;
     left: 26px;
     line-height: 21.9px;
-    width: 134px;
+    width: 200px;
 }
 
 .register-akun .text-wrapper-9 {
@@ -392,7 +392,7 @@
     position: absolute;
     width: 125px;
     height: 50px;
-    top: 0;
+    top: -100px;
     left: 0;
     border-radius: 40px;
     border: 1px solid;
@@ -402,7 +402,7 @@
 .register-akun .text-wrapper-11 {
     position: absolute;
     width: 78px;
-    top: 9px;
+    top: -90px;
     left: 33px;
     font-family: "Nunito Sans-Bold", Helvetica;
     font-weight: 700;
@@ -446,8 +446,8 @@
     position: absolute;
     height: 84px;
     top: 300px;
-    left: 750px;
-    width: 300px;
+    left: 700px;
+    width: 400px;
     font-family: "Poppins-Light", Helvetica;
     font-weight: 300;
     color: #ffffff;
@@ -459,7 +459,7 @@
 
 .register-akun .text-wrapper-13 {
     position: absolute;
-    top: 33px;
+    top: 20px;
     left: 0;
     font-family: "Roboto-Bold", Helvetica;
     font-weight: 700;

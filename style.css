@@ -25,12 +25,27 @@ body {
     font-weight: 600;
 }
 
+
+.btn-warning{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    height: 50px;
+    bottom: -10px;
+    padding-bottom: -10px;
+    color: #fff;
+}
+
+.btn-warning:hover{
+    background-color: yellow;
+}
+
 /* Hero Section */
 .hero-section {
     background-color: #1a1f36;
     padding: 80px 0 0;
     min-height: 500px;
 }
+
 
 .hero-section h1 {
     font-size: 3.5rem;
@@ -72,11 +87,15 @@ body {
 }
 
 .data-sources {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
     flex-direction: column;
     font-size: 20px;
-    height: 100%;
+    width: 500px;
+    margin-top: -50px;
+}
+
+.data-sources h3{
+    margin-top: 30px;
+    color: #e63946;
 }
 
 .img-thumbnail {
@@ -85,8 +104,8 @@ body {
     margin-left: 10%;
     margin-top: 10%;
     border-radius: 20px;
-
 }
+
 
 .text-danger {
     color: #e63946 !important;
@@ -96,13 +115,13 @@ body {
 .unimap-section {
     background-color: #fff;
     color: #333;
-    padding: 80px 0;
+    padding: 80px;
 }
 
 .unimap-section h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #1a1f36;
+    color: #e63946;
 }
 
 .unimap-section p {
@@ -132,102 +151,17 @@ body {
     color: #000;
     font-weight: 800;
 }
-/*Grafik */
-.main-container {
-    background-color: #1e2130;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-}
 
-.section-title {
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-.insection{
-    text-align: center;
-    height: 100px;
-    width: 600px;
-    margin-left: 120px;
-    margin-bottom: 60px;
-    font-size: 17px;
-}
-
-.placeholder-box {
-    background-color: #e9e9e9;
-    height: 120px;
-    border-radius: 5px;
-    color: #333;
-    margin-left: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 100px;
-    margin-bottom: 30px;
-    width: 70%;
-}
-
-.lorem-text {
-    color: #ff3366;
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-}
-
-.box-text {
-    font-size: 0.8rem;
-    text-align: center;
-}
-
-.info-text {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    text-align: center;
-    padding-bottom: 100px;
-}
-/*kecamatan*/
-.district-title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.city-title {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 50px;
-}
-
-.district-list {
-    text-align: center;
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 40px;
-    border: 3px dotted;
-    border-radius: 10%;
-}
-
-.district-list li {
-    color: #ff3366;
-    margin-bottom: 8px;
-    font-size: 1.5rem;
-}
-
+/* maps */
 .bottom-box {
-    background-color: #e9e9e9;
-    height: 800px;
-    border-radius: 5px;
+    background-color: #fff;
+    height: 760px;
+    border: #1a1f36 solid 20px;
+    border-radius: 10px;
     color: #333;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
     text-align: center;
     margin-bottom: 30px;
     font-size: 0.9rem;
@@ -237,23 +171,26 @@ body {
     font-size: 1.3rem;
     text-align: start;
 }
-/* Maps */
+
 #PetaInteraktif{
     text-align: center;
+    color: #e63946;
+    font-size: bold;
 }
 
 #PetaInteraktif p{
-    font-size: 30px;
+    font-size: 40px;
 }
 
+
 .navy-divider {
-    background-color: #8b1a1a;
+    background-color: #fff;
     height: 40px;
     width: 100%;
 }
 /* kontribusi */
 .contribution-section {
-    background-color: #f5f5f5;
+    background-color: #1a1f36;
     padding: 30px 20px;
 }
 
@@ -262,7 +199,7 @@ body {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 15px;
-    color: #1a1f36;
+    color: #e63946;
 }
 
 .contribution-text { 
@@ -270,17 +207,17 @@ body {
     font-size: 1.5rem;
     line-height: 1.6;
     margin-bottom: 20px;
-    color: #1a1f36;
+    color: #e9e9e9;
 }
 /* Mitra */
-.mitra{
-    background-color: #f5f5f5;
+.kontainer-mitra{
+    background-color: #fff;
 }
 
 .mitra-title{
     font-size: 40px;
     font-weight: bold;
-    color: #1a1f36;
+    color: #e63946;
     text-align: center;
     margin-bottom: 30px;
 }

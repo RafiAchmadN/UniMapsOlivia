@@ -26,6 +26,11 @@ body {
     font-weight: 600;
 }
 
+.navbar.scrolled {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     background-color: #f8f9fa !important; 
+}
+
 
 .button-penanganan{
     padding-top: 2px;
@@ -72,17 +77,6 @@ body {
     filter: hue-rotate(320deg) saturate(1.5);
 }
 
-/* .map-label {
-    position: absolute;
-    bottom: 20px;
-    left: 83%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 4px;
-    font-weight: bold;
-} */
 
 /* Why Section */
 .why-section {
@@ -239,6 +233,64 @@ body {
     margin-left: 100px;
     margin-bottom: 100px;
 }
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-box {
+    border: 2px solid #8b1a1a;
+    border-radius: 10px;
+    padding: 30px;
+    height: 300px; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.number-colmn {
+    margin-bottom: 15px; 
+}
+
+/* Modify existing or add new styles for buttons */
+.btn-dark.rounded-pill {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-dark.rounded-pill:hover {
+    background-color: #23272b; /* Darken the button a bit */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.btn-danger.rounded-pill.button-penanganan {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-danger.rounded-pill.button-penanganan:hover {
+    background-color: #c82333; /* Darken the button a bit */
+    transform: translateY(-2px);
+}
+.btn-danger.rounded-pill.button-penanganan a.nav-link:hover {
+    color: #fff !important; /* Ensure text remains readable */
+}
+
 /* Responsive Adjustments */
 @media (max-width: 992px) {
     .hero-section h1 {

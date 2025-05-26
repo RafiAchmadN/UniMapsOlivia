@@ -1,144 +1,713 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penanganan | UniMap</title>
-    <link rel="stylesheet" href="style2.css">
-    <link rel="stylesheet" href="Popupstyle.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <title>Penanganan - Program Kepelatihan Surabaya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #2c3e50;
+            --primary-blue: #34495e;
+            --accent-red: #e74c3c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ecf0f1;
+        }
+
+        .navbar-custom {
+            background-color: var(--primary-dark);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .logo i {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: #bdc3c7 !important;
+            margin: 0 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: white !important;
+        }
+
+        .btn-register {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-register:hover {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .filter-section {
+            margin-top: 2rem;
+        }
+
+        .filter-dropdown {
+            background-color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem;
+            min-width: 200px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .filter-dropdown select {
+            border: none;
+            background: none;
+            width: 100%;
+            font-size: 1rem;
+            color: #2c3e50;
+        }
+
+        .filter-dropdown select:focus {
+            outline: none;
+        }
+
+        .btn-filter {
+            background-color: var(--primary-dark);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-filter:hover {
+            background-color: #1a252f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .content-section {
+            padding: 4rem 0;
+        }
+
+        .content-tabs {
+            margin-bottom: 2rem;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #7f8c8d;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            color: var(--primary-dark);
+            border-bottom-color: var(--accent-red);
+        }
+
+        .sort-dropdown {
+            float: right;
+            margin-bottom: 2rem;
+        }
+
+        .training-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .training-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .card-location {
+            display: flex;
+            align-items: center;
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-location i {
+            margin-right: 0.5rem;
+            color: var(--accent-red);
+        }
+
+        .card-organization {
+            display: flex;
+            align-items: center;
+            color: #7f8c8d;
+        }
+
+        .card-organization i {
+            margin-right: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-red);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon i {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .community-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .community-avatar {
+            width: 80px;
+            height: 80px;
+            background-color: #bdc3c7;
+            border-radius: 50%;
+            margin-right: 2rem;
+            flex-shrink: 0;
+        }
+
+        .community-info h5 {
+            color: var(--primary-dark);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .community-info p {
+            color: #7f8c8d;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .pagination-custom {
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .pagination-custom .page-link {
+            color: var(--primary-dark);
+            border: none;
+            margin: 0 0.25rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .pagination-custom .page-item.active .page-link {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .pagination-custom .page-link:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .filter-dropdown {
+                min-width: 100%;
+                margin: 0.5rem 0;
+            }
+            
+            .community-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .community-avatar {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .sort-dropdown {
+                float: none;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <header class="header">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-            <div class="logo">UniMap</div>
-            <nav class="nav">
-                <a href="#">Beranda</a>
-                <a href="#">Peta Interaktif</a>
-                <a href="#" class="active">Penanganan</a>
-                <a href="#">Kontribusi</a>
-                <a href="#">Kontak</a>
+            <a class="navbar-brand" href="#">
+                <div class="logo">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Peta Interaktif</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Penanganan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontribusi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontak</a>
+                    </li>
+                </ul>
+                <button class="btn btn-register">DAFTAR SEKARANG</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">PENANGANAN</h1>
+            <p class="hero-subtitle">Program kepelatihan dan kemitraan sosial di Kecamatan Surabaya</p>
+            
+            <div class="filter-section">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <div class="filter-dropdown">
+                                <i class="fas fa-map-marker-alt me-2" style="color: #e74c3c;"></i>
+                                <select id="kecamatan">
+                                    <option>Kecamatan</option>
+                                    <option>Genteng</option>
+                                    <option>Tambaksari</option>
+                                    <option>Gubeng</option>
+                                    <option>Sukolilo</option>
+                                </select>
+                            </div>
+                            <div class="filter-dropdown">
+                                <i class="fas fa-graduation-cap me-2" style="color: #e74c3c;"></i>
+                                <select id="jenisPelatihan">
+                                    <option>Jenis Pelatihan</option>
+                                    <option>Kewirausahaan</option>
+                                    <option>Keahlian Digital</option>
+                                    <option>Keterampilan Teknis</option>
+                                </select>
+                            </div>
+                            <div class="filter-dropdown">
+                                <i class="fas fa-users me-2" style="color: #e74c3c;"></i>
+                                <select id="jenisMitra">
+                                    <option>Jenis Mitra / Komunitas</option>
+                                    <option>UMKM</option>
+                                    <option>Karang Taruna</option>
+                                    <option>Organisasi Sosial</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-filter" onclick="applyFilters()">Terapkan Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <!-- Tabs -->
+            <div class="content-tabs">
+                <button class="tab-button active" onclick="switchTab('pelatihan')">Pelatihan</button>
+                <button class="tab-button" onclick="switchTab('mitra')">Mitra</button>
+            </div>
+
+            <!-- Sort Dropdown -->
+            <div class="sort-dropdown">
+                <select class="form-select" style="width: auto;">
+                    <option>Sort By : Terbaru</option>
+                    <option>Sort By : Nama A-Z</option>
+                    <option>Sort By : Lokasi</option>
+                </select>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- Training Cards -->
+            <div id="pelatihan-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="training-card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Pelatihan</div>
+                                    <div class="card-subtitle">Pelatihan Kewirausahaan</div>
+                                    <div class="card-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Genteng
+                                    </div>
+                                    <div class="card-organization">
+                                        <i class="fas fa-building"></i>
+                                        UMKM Genteng
+                                    </div>
+                                </div>
+                                <div class="card-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="training-card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Pelatihan</div>
+                                    <div class="card-subtitle">Pelatihan Keahlian Digital</div>
+                                    <div class="card-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Tambaksari
+                                    </div>
+                                    <div class="card-organization">
+                                        <i class="fas fa-building"></i>
+                                        Disnaker Genteng
+                                    </div>
+                                </div>
+                                <div class="card-icon">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Card -->
+                <div class="community-card">
+                    <div class="community-avatar"></div>
+                    <div class="community-info">
+                        <h5>Karang Taruna</h5>
+                        <p>Organisasi sosial yang bergerak dalam upaya pembinaan dan pengembangan generasi muda</p>
+                    </div>
+                </div>
+
+                <!-- Placeholder Cards -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="training-card" style="height: 150px; background-color: #f8f9fa;">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="training-card" style="height: 150px; background-color: #f8f9fa;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-card" style="height: 120px; background-color: #f8f9fa; margin-top: 1rem;">
+                </div>
+            </div>
+
+            <!-- Mitra Content (Hidden by default) -->
+            <div id="mitra-content" style="display: none;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="training-card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Mitra</div>
+                                    <div class="card-subtitle">UMKM Genteng</div>
+                                    <div class="card-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Genteng
+                                    </div>
+                                    <div class="card-organization">
+                                        <i class="fas fa-handshake"></i>
+                                        Kemitraan Aktif
+                                    </div>
+                                </div>
+                                <div class="card-icon">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="training-card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Mitra</div>
+                                    <div class="card-subtitle">Karang Taruna Tambaksari</div>
+                                    <div class="card-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Tambaksari
+                                    </div>
+                                    <div class="card-organization">
+                                        <i class="fas fa-handshake"></i>
+                                        Organisasi Mitra
+                                    </div>
+                                </div>
+                                <div class="card-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav>
+                <ul class="pagination pagination-custom">
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">...</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">5</a>
+                    </li>
+                </ul>
             </nav>
-            <a href="#" class="btn-signup">Daftar Sekarang</a>
         </div>
-    </header>
+    </section>
 
-    <main class="penanganan">
-        <section class="filter-section">
-            <div class="container">
-                <h1>Penanganan</h1>
-                <p>Program Kepelatihan dan Kemitraan Sosial di Kecamatan Surabaya</p>
-                <div class="filters">
-                    <select><option>Kecamatan</option></select>
-                    <select><option>Jenis Pelatihan</option></select>
-                    <select><option>Jenis Mitra/Komunitas</option></select>
-                    <button class="btn-apply">Terapkan Filter</button>
-                </div>
-            </div>
-        </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
 
-        <section class="cards-section">
-            <div class="container cards">
-                <!-- Card Pelatihan -->
-                <div class="card">
-                    <div class="card-icon">📈</div>
-                    <h2>Pelatihan Kewirausahaan</h2>
-                    <p class="meta">Genteng &bull; UMKM Genteng</p>
-                    <button class="btn-detail">Detail Informasi</button>
-                    <button class="join-btn">Masuk Komunitas</button>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💻</div>
-                    <h2>Pelatihan Keahlian Digital</h2>
-                    <p class="meta">Tambaksari &bull; Disnaker Tambaksari</p>
-                    <button class="btn-detail">Detail Informasi</button>
-                    <button class="join-btn">Masuk Komunitas</button>
-                </div>
-                <!-- Detail Informasi -->
-                <div class="modal detail-pelatihan" id="detailModal">
-                    <div class="detail-pelatihan__rectangle-1379">
-                        <div class="detail-pelatihan__detail-informasi-pelatihan">Detail Informasi Pelatihan</div>
-                        <div class="detail-pelatihan__pelatihan-kewirausahan">Pelatihan Kewirausahaan</div>
-                        <div class="detail-pelatihan__deskripsi-acara">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-                        </div>
-                        <div class="detail-pelatihan__tanggalan">📅 25 Mei 2025 – (Bila berhari-hari)</div>
-                        <div class="detail-pelatihan__tanggalan2">👤 +62 8123 456 789</div>
-                        <button class="detail-pelatihan__tutup" id="detailClose">
-                        <div class="detail-pelatihan__rectangle-1386"></div>
-                        <div class="detail-pelatihan__tutup2">Tutup</div>
-                      </button>
-                    </div>
-                </div>
+            // Show/hide content
+            if (tabName === 'pelatihan') {
+                document.getElementById('pelatihan-content').style.display = 'block';
+                document.getElementById('mitra-content').style.display = 'none';
+            } else {
+                document.getElementById('pelatihan-content').style.display = 'none';
+                document.getElementById('mitra-content').style.display = 'block';
+            }
+        }
 
-                <!-- Join Komunitas -->
-                <div class="modal gabung-komunitas" id="joinModal">
-                    <div class="gabung-komunitas__rectangle-1379">
-                        <button class="gabung-komunitas__close" id="joinClose">×</button>
-                        <h2 class="gabung-komunitas__gabung-komunitas2">Gabung Komunitas</h2>
-                        <div class="gabung-komunitas__deskripsi-acara">
-                            Lorem Ipsum merupakan komunitas yang berfokus pada dukungan dan pengembangan ...
-                        </div>
-                        <button class="gabung-komunitas__rectangle-1386">
-                        <div class="gabung-komunitas__masuk">Bergabung Sekarang</div>
-                      </button>
-                    </div>
-                </div>
+        // Filter functionality
+        function applyFilters() {
+            const kecamatan = document.getElementById('kecamatan').value;
+            const jenisPelatihan = document.getElementById('jenisPelatihan').value;
+            const jenisMitra = document.getElementById('jenisMitra').value;
 
-                <script>
-                    // Detail modal handlers
-                    document.querySelectorAll('.btn-detail').forEach(btn => {
-                        btn.addEventListener('click', () => {
-                            document.getElementById('detailModal').classList.add('active');
-                        });
+            // Show loading state
+            const filterBtn = event.target;
+            const originalText = filterBtn.textContent;
+            filterBtn.textContent = 'Memuat...';
+            filterBtn.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                filterBtn.textContent = originalText;
+                filterBtn.disabled = false;
+                
+                // Show success message
+                showToast('Filter berhasil diterapkan!');
+            }, 1000);
+        }
+
+        // Toast notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: #27ae60;
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Add slide-in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Pagination functionality
+        document.querySelectorAll('.pagination .page-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all items
+                document.querySelectorAll('.pagination .page-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Add active class to clicked item
+                this.parentElement.classList.add('active');
+                
+                // Smooth scroll to top of content
+                document.querySelector('.content-section').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu enhancement
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navbarCollapse.contains(e.target) && !navbarToggler.contains(e.target)) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                        toggle: false
                     });
-                    document.getElementById('detailClose').addEventListener('click', () => {
-                        document.getElementById('detailModal').classList.remove('active');
-                    });
+                    bsCollapse.hide();
+                }
+            });
+        });
 
-                    // Join modal handlers
-                    document.querySelectorAll('.join-btn').forEach(btn => {
-                        btn.addEventListener('click', () => {
-                            document.getElementById('joinModal').classList.add('active');
-                        });
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
-                    document.getElementById('joinClose').addEventListener('click', () => {
-                        document.getElementById('joinModal').classList.remove('active');
-                    });
-                </script>
-                <!-- More cards... -->
-            </div>
-            <div class="container pagination">
-                <button>Awal</button>
-                <button>Sebelumnya</button>
-                <button class="active">1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>Selanjutnya</button>
-                <button>Terakhir</button>
-            </div>
-        </section>
-    </main>
+                }
+            });
+        });
 
-    <footer class="footer">
-        <div class="container footer-cols">
-            <div class="col">
-                <h3>Tentang UniMap</h3>
-                <p>Platform WebGIS interaktif untuk memetakan kemiskinan dan mendukung keputusan sosial.</p>
-            </div>
-            <div class="col">
-                <h3>Kontak Kami</h3>
-                <p>Email: info@unimap.sby.id</p>
-                <p>Telp: +62 31 1234 5678</p>
-            </div>
-            <div class="col">
-                <h3>Sosial Media & Mitra</h3>
-                <div class="social-icons">FB IG TW</div>
-            </div>
-        </div>
-    </footer>
+        // Add loading states to cards on hover
+        document.querySelectorAll('.training-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.cursor = 'pointer';
+            });
+            
+            card.addEventListener('click', function() {
+                // Simulate card click action
+                showToast('Membuka detail program...');
+            });
+        });
+    </script>
 </body>
-
 </html>

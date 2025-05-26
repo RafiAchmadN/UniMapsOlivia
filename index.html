@@ -15,8 +15,8 @@
 
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-        <div class="container">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white py-3">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src=".\Img\Hasil akhr.svg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
             </a>
@@ -30,10 +30,10 @@
                         <a class="nav-link active" href="#">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Peta Interaktif</a>
+                        <a class="nav-link" href="#PetaInteraktif">Peta Interaktif</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tentang Kami</a>
+                        <a class="nav-link" href="./Penaganan/Index1.html">Penanganan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Kontribusi</a>
@@ -111,8 +111,7 @@
     <section class="unimap-section py-5">
         <div class="container">
             <h2 class="text-center mb-4">Uni Map</h2>
-            <p class="text-center mb-5">Platform WebGIS Interaktif yang memvisualisasikan data kemiskinan per kecamatan
-                di Surabaya.Dengan menggunakan peta berbasis OpenStreetMap, pengguna dapat</p>
+            <p class="text-center mb-5">UniMap adalah platform WebGIS interaktif berbasis OpenStreetMap yang memvisualisasikan data sosial-ekonomi untuk mendukung pengambilan keputusan pemerintah, khususnya dalam penanganan kemiskinan. Aplikasi ini tidak sekadar menampilkan peta data, tetapi juga menjadi Decision Support System (DSS) yang mengidentifikasi wilayah prioritas penanganan berbasis indikator kemiskinan.</p>
 
             <div class="row">
                 <div class="col-md-4">
@@ -145,10 +144,9 @@
         <div class="row mt-4">
             <div class="col-md-6">
                 <h2 class="section-title">KENAPA DATA PENTING?</h2>
+                <p class="insection">Kemiskinan bukan sekadar angka; ia tersebar sdan berdampak pada kualitas hidup masyarakat. Di Surabaya, meskipun terjadi penurunan jumlah penduduk kategori “miskin”, dengan perkembangan ekonomi dan inflasi indonesia yang semakin kurang diprediksi menyebabkan tantangan masih ada, terutama di wilayah-wilayah tertentu yang memerlukan perhatian lebih.</p>
 
                 <div class="placeholder-box">
-                    <div class="lorem-text">Lorem ipsum</div>
-                    <div class="box-text">Tabel / Grafik data terkini</div>
                 </div>
 
                 <div class="placeholder-box">
@@ -158,10 +156,8 @@
 
             <div class="col-md-6">
                 <h2 class="section-title">APA YANG BISA SAYA LAKUKAN?</h2>
-
-                <div class="placeholder-box">
-                    <div class="lorem-text">Lorem ipsum</div>
-                    <div class="box-text">Tabel / Grafik status kesejahteraan</div>
+                <p class="insection">Dengan memahami distribusi kemiskinan secara geografis, kita dapat bersama-sama merancang solusi yang lebih efektif. Kunjungi Surabaya Poverty Map dan jadilah bagian dari perubahan positif di kota kita.</p>
+                <div class="placeholder-box">   
                 </div>
 
                 <div class="placeholder-box">
@@ -261,8 +257,8 @@
             </div>
         </div>
         <!--Interactive Section-->
-        <div class="PetaInteraktif">
-            <h1>PETA</h1>
+        <div id="PetaInteraktif">
+            <h1>PETA KEMISKINAN</h1>
             <p>Kota Surabaya</p>
             <div class="col-md-8 mx-auto">
                 <div class="bottom-box">
@@ -272,30 +268,6 @@
         </div>
     </div>
 
-        <!-- Header Section with Placeholder Boxes -->
-    <div class="header-section">
-        <div class="container">
-            <div class="header-title">Tentang Kami</div>
-            
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="placeholder-box"></div>
-                </div>
-                <div class="col-md-6">
-                    <div class="placeholder-box"></div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="placeholder-box"></div>
-                </div>
-                <div class="col-md-6">
-                    <div class="placeholder-box"></div>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <!-- Navy Divider -->
     <div class="navy-divider"></div>
@@ -314,6 +286,15 @@
     
     <!-- Navy Divider -->
     <div class="navy-divider"></div>
+
+    <!--Kontribusi-->
+    <div class="Mitra">
+        <div class="kontainer">
+            <div class="mitra-title">Mitra Kami</div>
+            <img src="./Img/City_of_Surabaya_Logo.svg.png" alt="" class="mitra-kami">
+            <img src="./Img/Lambang_Badan_Pusat_Statistik_(BPS)_Indonesia.svg.png" alt="" class="mitra-kami2">
+        </div>
+    </div>
 
 
     <!-- Bootstrap JS Bundle with Popper -->

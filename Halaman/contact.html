@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - UniMap Surabaya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white py-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../Img/Hasil akhr.svg" alt="UniMap Logo" width="40" height="40" class="navbar-logo">
+                <span class="brand-text">UniMap</span>
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a href="../index.html" class="nav-link">
+                    <i class="fas fa-arrow-left me-1"></i>Kembali ke Beranda
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Content -->
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center mb-5">
+                        <h1 class="display-4 fw-bold" style="color: var(--primary-color);">
+                            <i class="fas fa-envelope me-3"></i>Hubungi Kami
+                        </h1>
+                        <p class="lead">Bergabung sebagai mitra atau sampaikan pertanyaan Anda</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <!-- Partnership Form -->
+                        <div class="col-lg-8">
+                            <div class="glass-card p-4" style="background: rgba(26, 31, 54, 0.05);">
+                                <h3 class="text-danger mb-4">
+                                    <i class="fas fa-handshake me-2"></i>Formulir Kemitraan
+                                </h3>
+                                <form id="partnershipForm">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="orgName" class="form-label">Nama Organisasi/Lembaga</label>
+                                            <input type="text" class="form-control" id="orgName" name="orgName" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="orgType" class="form-label">Jenis Organisasi</label>
+                                            <select class="form-select" id="orgType" name="orgType" required>
+                                                <option value="">Pilih Jenis</option>
+                                                <option value="umkm">UMKM</option>
+                                                <option value="karang-taruna">Karang Taruna</option>
+                                                <option value="organisasi-sosial">Organisasi Sosial</option>
+                                                <option value="lembaga-pendidikan">Lembaga Pendidikan</option>
+                                                <option value="lainnya">Lainnya</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="contactPerson" class="form-label">Nama Penanggung Jawab</label>
+                                            <input type="text" class="form-control" id="contactPerson" name="contactPerson" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="phone" class="form-label">Nomor Telepon</label>
+                                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="kecamatan" class="form-label">Kecamatan</label>
+                                            <select class="form-select" id="kecamatan" name="kecamatan" required>
+                                                <option value="">Pilih Kecamatan</option>
+                                                <option value="asemrowo">Asemrowo</option>
+                                                <option value="benowo">Benowo</option>
+                                                <option value="bubutan">Bubutan</option>
+                                                <option value="bulak">Bulak</option>
+                                                <option value="dukuh-pakis">Dukuh Pakis</option>
+                                                <option value="gayungan">Gayungan</option>
+                                                <option value="genteng">Genteng</option>
+                                                <option value="gubeng">Gubeng</option>
+                                                <option value="gunung-anyar">Gunung Anyar</option>
+                                                <option value="jambangan">Jambangan</option>
+                                                <option value="karang-pilang">Karang Pilang</option>
+                                                <option value="kenjeran">Kenjeran</option>
+                                                <option value="krembangan">Krembangan</option>
+                                                <option value="lakarsantri">Lakarsantri</option>
+                                                <option value="mulyorejo">Mulyorejo</option>
+                                                <option value="pabean-cantian">Pabean Cantian</option>
+                                                <option value="pakal">Pakal</option>
+                                                <option value="rungkut">Rungkut</option>
+                                                <option value="sambikerep">Sambikerep</option>
+                                                <option value="sawahan">Sawahan</option>
+                                                <option value="semampir">Semampir</option>
+                                                <option value="simokerto">Simokerto</option>
+                                                <option value="sukolilo">Sukolilo</option>
+                                                <option value="sukomanunggal">Sukomanunggal</option>
+                                                <option value="tambaksari">Tambaksari</option>
+                                                <option value="tandes">Tandes</option>
+                                                <option value="tegalsari">Tegalsari</option>
+                                                <option value="tenggilis">Tenggilis</option>
+                                                <option value="kendangsari">Kendangsari</option>
+                                                <option value="kutisari">Kutisari</option>
+                                                <option value="wiyung">Wiyung</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="trainingType" class="form-label">Jenis Pelatihan yang Ditawarkan</label>
+                                            <select class="form-select" id="trainingType" name="trainingType" required>
+                                                <option value="">Pilih Jenis Pelatihan</option>
+                                                <option value="kewirausahaan">Kewirausahaan</option>
+                                                <option value="keahlian-digital">Keahlian Digital</option>
+                                                <option value="keterampilan-teknis">Keterampilan Teknis</option>
+                                                <option value="pertanian-urban">Pertanian Urban</option>
+                                                <option value="kerajinan-tangan">Kerajinan Tangan</option>
+                                                <option value="kuliner">Kuliner</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="description" class="form-label">Deskripsi Program Pelatihan</label>
+                                            <textarea class="form-control" id="description" name="description" rows="4" placeholder="Jelaskan detail program pelatihan yang akan Anda berikan..." required></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="schedule" class="form-label">Jadwal Pelatihan</label>
+                                            <input type="text" class="form-control" id="schedule" name="schedule" placeholder="Contoh: Setiap Sabtu, 09:00-12:00" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="capacity" class="form-label">Kapasitas Peserta</label>
+                                            <input type="number" class="form-control" id="capacity" name="capacity" min="1" max="100" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary btn-lg">
+                                                <i class="fas fa-paper-plane me-2"></i>Kirim Proposal Kemitraan
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Contact Info -->
+                        <div class="col-lg-4">
+                            <div class="glass-card p-4 h-100" style="background: rgba(230, 57, 70, 0.1);">
+                                <h4 class="text-danger mb-4">
+                                    <i class="fas fa-info-circle me-2"></i>Informasi Kontak
+                                </h4>
+
+                                <div class="contact-item mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-envelope text-primary me-3"></i>
+                                        <strong>Email</strong>
+                                    </div>
+                                    <p class="ms-4 mb-0">info@unimap-surabaya.id</p>
+                                </div>
+
+                                <div class="contact-item mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-phone text-primary me-3"></i>
+                                        <strong>Telepon</strong>
+                                    </div>
+                                    <p class="ms-4 mb-0">(031) 123-4567</p>
+                                </div>
+
+                                <div class="contact-item mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                                        <strong>Alamat</strong>
+                                    </div>
+                                    <p class="ms-4 mb-0">Balai Kota Surabaya<br>Jl. Taman Surya No.1<br>Surabaya, Jawa Timur</p>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-clock text-primary me-3"></i>
+                                        <strong>Jam Operasional</strong>
+                                    </div>
+                                    <p class="ms-4 mb-0">Senin - Jumat: 08:00 - 16:00<br>Sabtu: 08:00 - 12:00</p>
+                                </div>
+
+                                <hr class="my-4">
+
+                                <h5 class="text-danger mb-3">Persyaratan Kemitraan</h5>
+                                <ul class="list-unstyled small">
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Legalitas organisasi yang jelas</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Program pelatihan yang terstruktur</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Komitmen jangka panjang</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Laporan berkala kegiatan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <div class="footer-brand mb-3">
+                <img src="../Img/Hasil akhr.svg" alt="UniMap Logo" width="30" height="30" class="me-2">
+                <span class="footer-brand-text">UniMap</span>
+            </div>
+            <p class="footer-description">Platform WebGIS untuk visualisasi dan analisis data kemiskinan di Surabaya.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('partnershipForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Store in localStorage for demo purposes
+            const partnerships = JSON.parse(localStorage.getItem('partnerships') || '[]');
+            partnerships.push({
+                ...data,
+                id: Date.now(),
+                status: 'pending',
+                submittedAt: new Date().toISOString()
+            });
+            localStorage.setItem('partnerships', JSON.stringify(partnerships));
+
+            // Show success message
+            alert('Terima kasih! Proposal kemitraan Anda telah dikirim. Tim kami akan menghubungi Anda dalam 2-3 hari kerja.');
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>

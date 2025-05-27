@@ -175,9 +175,8 @@
 
 .register-akun .text-wrapper-3 {
     position: absolute;
-    height: 30px;
-    top: 17px;
-    left: 15px;
+    width: 399px;
+    height: 70px;
     font-family: "Poppins-Regular", Helvetica;
     font-weight: 400;
     color: #bcbec0;
@@ -257,9 +256,8 @@
 
 .register-akun .text-wrapper-6 {
     position: absolute;
-    width: 181px;
-    top: 21px;
-    left: 15px;
+    width: 399px;
+    height: 70px;
     font-family: "Nunito Sans-Regular", Helvetica;
     font-weight: 400;
     color: #8e8e8e;

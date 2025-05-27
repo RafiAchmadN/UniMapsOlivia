@@ -4,176 +4,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surabaya Poverty Map - Visualisasi Peta Interaktif</title>
-    <!-- Bootstrap CSS -->
+    <title>UniMap - Surabaya Poverty Mapping Platform</title>
+    <meta name="description" content="Platform WebGIS interaktif untuk visualisasi dan analisis data kemiskinan di Surabaya">
+    <meta name="keywords" content="peta kemiskinan, surabaya, webgis, data sosial">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./style.css" as="style">
+    <link rel="preload" href="./script.js" as="script">
+
+    <!-- Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="./style.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="./style.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./Img/Hasil akhr.svg">
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="./Img/Hasil akhr.svg" alt="UniMap Logo" class="loading-logo-img">
+            </div>
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Memuat UniMap...</p>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white py-3">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white py-3" role="navigation" aria-label="Main navigation">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src=".\Img\Hasil akhr.svg" alt="Logo" width="40" height="40"  class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="#" aria-label="UniMap Home">
+                <img src="./Img/Hasil akhr.svg" alt="UniMap Logo" width="40" height="40" class="d-inline-block align-text-top navbar-logo">
+                <span class="brand-text">UniMap</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#panggil">Beranda</a>
+                        <a class="nav-link active" href="#panggil" data-section="home">
+                            <i class="fas fa-home me-1"></i>Beranda
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#PetaInteraktif">Peta Interaktif</a>
+                        <a class="nav-link" href="#PetaInteraktif" data-section="map">
+                            <i class="fas fa-map me-1"></i>Peta Interaktif
+                        </a>
                     </li>
-                    <li class="btn btn-danger rounded-pill button-penanganan">
-                        <a class="nav-link" href="./Penanganan/Index1.html">PENANGANAN</a>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger rounded-pill button-penanganan" href="./Penganan/Index1.html">
+                            <i class="fas fa-hands-helping me-1"></i>PENANGANAN
+                        </a>
                     </li>
                 </ul>
-                <a href=".\Login\Register_Unimap.html" class="btn btn-dark rounded-pill px-4">BERGABUNG SEKARANG</a>
+                <a href="./Login/Register_Unimap.html" class="btn btn-dark rounded-pill px-4 cta-button">
+                    <i class="fas fa-user-plus me-1"></i>BERGABUNG SEKARANG
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-<div id="panggil">
-    <section class="hero-section py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold text-white">SURABAYA<br>POVERTY MAP</h1>
-                    <p class="lead text-danger mb-4">Visualisasi Peta Interaktif<br>Untuk Aksi Nyata</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="map-container position-relative">
-                        <img src=".\Img\image 3.svg" alt="Surabaya Map" class="img-fluid">
-                        <!-- <div class="map-label">SURABAYA</div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-    <!-- Why Section -->
-    <section class="why-section py-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="data-sources p-4">
-                        <h3 class="Title-why">Data yang Digunakan</h3>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-circle me-2 text-danger"></i> Badan Pusat Statistik (BPS)
-                            </li>
-                            <li><i class="fas fa-circle me-2 text-danger"></i> Dinas Sosial Kota Surabaya (Satu data)
-                            </li>
-                        </ul>
-                        <h3 class="text-danger mt-4">Apa Itu UniMap?</h3>
-                        <p class="text-white">Berkesinambungan Unity Equity and Identify yang berarti dari "Equity
-                        Kemiskinan (Equality) + "Map", menunjukkan tujuan pemerataan keseimbangan dan "Identify
-                        mengidentifikasi kemiskinan.</p>
-
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <h2 class="text-danger mb-4">Mengapa Pemetaan Kemiskinan Penting?</h2>
-                    <p class="text-white">Kemiskinan bukan sekadar angka dan berdampak pada kualitas hidup masyarakat.
-                        Di Surabaya, meskipun terjadi penurunan jumlah penduduk miskin di wilayah tertentu yang
-                        memerlukan perhatian lebih.</p>
-                    <h3 class="text-danger mt-4">Tujuan dan Manfaat</h3>
-                    <ul class="text-white">
-                        <li class="mb-2">Transparan: Menyediakan informasi yang mudah diakses oleh publik mengenai
-                            kondisi kemiskinan di Surabaya.</li>
-                        <li class="mb-2">Partisipasi Publik: Mendorong keterlibatan masyarakat dalam memahami dan
-                            mengatasi masalah kemiskinan di lingkungan mereka.</li>
-                        <li>Serta Membantu pemerintah dan organisasi non-pemerintah mengatasi kondisi masyarakat.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Uni Map Section -->
-    <section class="unimap-section py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Uni Map</h2>
-            <p class="text-center mb-5">UniMap adalah platform WebGIS interaktif berbasis OpenStreetMap yang memvisualisasikan data sosial-ekonomi untuk mendukung pengambilan keputusan pemerintah, khususnya dalam penanganan kemiskinan. Aplikasi ini tidak sekadar menampilkan peta data, tetapi juga menjadi Decision Support System (DSS) yang mengidentifikasi wilayah prioritas penanganan berbasis indikator kemiskinan.</p>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="feature-box">
-                        <div class="number-colmn">1
+    <main>
+        <section id="panggil" class="hero-section py-5" role="banner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="hero-content">
+                            <h1 class="display-4 fw-bold text-white hero-title">
+                                <span class="text-highlight">SURABAYA</span><br>
+                                <span class="text-gradient">POVERTY MAP</span>
+                            </h1>
+                            <p class="lead text-danger mb-4 hero-subtitle">
+                                Visualisasi Peta Interaktif<br>
+                                <span class="text-white">Untuk Aksi Nyata</span>
+                            </p>
+                            <div class="hero-buttons">
+                                <a href="#PetaInteraktif" class="btn btn-primary btn-lg me-3 pulse-button">
+                                    <i class="fas fa-map-marked-alt me-2"></i>Jelajahi Peta
+                                </a>
+                                <a href="./Login/Register_Unimap.html" class="btn btn-outline-light btn-lg">
+                                    <i class="fas fa-rocket me-2"></i>Mulai Sekarang
+                                </a>
+                            </div>
                         </div>
-                        <h2>Responsif </h2>
-                        <p>Dioptimalkan untuk berbagai perangkat, memastikan aksesibilitas yang luas.</p>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-box ">
-                        <div class="number-colmn">2</div>
-                        <h2>Dashboard Dinamis</h2>
-                        <p>Menyajikan statistik dan tren kemiskinan dalam format yang mudah dipahami.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-box">
-                        <div class="number-colmn">3</div>
-                        <h2>Peta Interaktif</h2>
-                        <p>Menampilkan distribusi kemiskinan dengan gradasi warna yang intuitif.</p>
+                    <div class="col-lg-6">
+                        <div class="map-container position-relative">
+                            <div class="map-glow"></div>
+                            <img src="./Img/image 3.svg" alt="Peta Surabaya" class="img-fluid map-image" loading="lazy">
+                            <div class="floating-stats">
+                                <div class="stat-item">
+                                    <div class="stat-number" data-target="31">0</div>
+                                    <div class="stat-label">Kecamatan</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number" data-target="154">0</div>
+                                    <div class="stat-label">Kelurahan</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-        <!--Interactive Section-->
-        <div id="PetaInteraktif">
-            <h1>PETA KEMISKINAN</h1>
-            <p>Kota Surabaya</p>
-            <div class="col-md-8 mx-auto">
-                <div class="bottom-box">
-                    <iframe src="./Data/Peta.html" class="Maps" height="100%" width="100%"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    
-    <!-- Navy Divider -->
-    <div class="navy-divider"></div>
-    
-    <!-- Contribution Section -->
-    <div class="contribution-section">
+        </section>
+
+        <!-- Why Section -->
+        <section class="why-section py-5" role="region" aria-labelledby="why-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="data-sources p-4 glass-card">
+                            <h3 class="Title-why" id="data-sources-title">
+                                <i class="fas fa-database me-2" style="color: #000000;"></i> Data yang Digunakan
+                            </h3>
+                            <ul class="list-unstyled data-list">
+                                <li class="mb-3 data-item">
+                                    <div class="data-icon">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                    <div class="data-content">
+                                        <strong>Badan Pusat Statistik (BPS)</strong>
+                                        <p class="mb-0" style="color: #000000;">Data statistik resmi kemiskinan</p>
+                                    </div>
+                                </li>
+                                <li class="data-item">
+                                    <div class="data-icon">
+                                        <i class="fas fa-building"></i>
+                                    </div>
+                                    <div class="data-content">
+                                        <strong>Dinas Sosial Kota Surabaya</strong>
+                                        <p class="mb-0" style="color: #000000;">Data sosial dan program bantuan</p>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="mt-4">
+                                <h3 class="text-danger">
+                                    <i class="fas fa-question-circle me-2"></i>Apa Itu UniMap?
+                                </h3>
+                                <p class="text-white">
+                                    <strong>Unify map, berasal dari = </strong><strong>Unity + Equity + Identify + Map</strong><br> Platform yang menggabungkan kesatuan, kesetaraan, dan identifikasi untuk pemetaan pemerataan keseimbangan dan mengidentifikasi
+                                    kemiskinan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="why-content">
+                            <h2 class="text-danger mb-4" id="why-title">
+                                <i class="fas fa-lightbulb me-2"></i> Mengapa Pemetaan Kemiskinan Penting?
+                            </h2>
+                            <p class="text-white mb-4">
+                                Kemiskinan bukan sekadar angka, tetapi realitas yang berdampak pada kualitas hidup masyarakat. Di Surabaya, meskipun terjadi penurunan jumlah penduduk miskin, masih ada wilayah yang memerlukan perhatian khusus.
+                            </p>
+
+                            <h3 class="text-danger mt-4 mb-3">
+                                <i class="fas fa-target me-2"></i>Tujuan dan Manfaat
+                            </h3>
+                            <div class="benefits-list">
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <div class="benefit-content">
+                                        <h5>Transparansi</h5>
+                                        <p>Informasi yang mudah diakses publik mengenai kondisi kemiskinan di Surabaya</p>
+                                    </div>
+                                </div>
+
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="benefit-content">
+                                        <h5>Partisipasi Publik</h5>
+                                        <p>Mendorong keterlibatan masyarakat dalam memahami dan mengatasi kemiskinan</p>
+                                    </div>
+                                </div>
+
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <div class="benefit-content">
+                                        <h5>Kolaborasi</h5>
+                                        <p>Membantu pemerintah dan organisasi dalam pengambilan keputusan berbasis data</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="unimap-section py-5" role="region" aria-labelledby="features-title">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 id="features-title" class="section-title">
+                        <span class="title-highlight">Uni</span>Map
+                    </h2>
+                    <p class="section-subtitle">
+                        UniMap adalah platform WebGIS interaktif berbasis OpenStreetMap yang memvisualisasikan data sosial-ekonomi untuk mendukung pengambilan keputusan pemerintah, khususnya dalam penanganan kemiskinan. Aplikasi ini tidak sekadar menampilkan peta data, tetapi
+                        juga menjadi Decision Support System (DSS) yang mengidentifikasi wilayah prioritas penanganan berbasis indikator kemiskinan.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-number">1</div>
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="feature-title">Responsif</h3>
+                            <p class="feature-description">
+                                Dioptimalkan untuk berbagai perangkat, memastikan aksesibilitas yang luas di desktop, tablet, dan smartphone.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-number">2</div>
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="feature-title">Dashboard Dinamis</h3>
+                            <p class="feature-description">
+                                Menyajikan statistik dan tren kemiskinan dalam format yang mudah dipahami dengan visualisasi interaktif.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
+                            <div class="feature-number">3</div>
+                            <div class="feature-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h3 class="feature-title">Peta Interaktif</h3>
+                            <p class="feature-description">
+                                Menampilkan distribusi kemiskinan dengan gradasi warna yang intuitif dan informasi detail per kecamatan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section id="PetaInteraktif" class="map-section py-5" role="region" aria-labelledby="map-title">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 id="map-title" class="map-title">
+                        <i class="fas fa-map-marked-alt me-2"></i> PETA KEMISKINAN
+                    </h2>
+                    <p class="map-subtitle">Kota Surabaya</p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="map-wrapper">
+                            <div class="map-controls">
+                                <button class="map-control-btn" id="fullscreenBtn" title="Layar Penuh">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="map-control-btn" id="refreshBtn" title="Muat Ulang">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                            </div>
+                            <div class="map-container-interactive">
+                                <iframe src="./Data/Peta.html" class="interactive-map" title="Peta Interaktif Kemiskinan Surabaya" loading="lazy">
+                                </iframe>
+                                <div class="map-overlay" id="mapOverlay">
+                                    <div class="map-loading">
+                                        <div class="loading-spinner"></div>
+                                        <p>Memuat peta interaktif...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contribution Section -->
+        <section class="contribution-section py-5" role="region" aria-labelledby="contribution-title">
+            <div class="container">
+                <div class="text-center">
+                    <h2 id="contribution-title" class="contribution-title">
+                        <i class="fas fa-hands-helping me-2"></i> Kontribusi & Partisipasi
+                    </h2>
+                    <p class="contribution-text">
+                        Kami membuka ruang kontribusi untuk masyarakat dalam bentuk laporan sosial, pembaruan data lokal, dan pengembangan fitur lanjutan berbasis komunitas.
+                    </p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="partners-section py-5" role="region" aria-labelledby="partners-title">
+            <div class="container">
+                <div class="text-center">
+                    <h2 id="partners-title" class="partners-title">
+                        <i class="fas fa-handshake me-2"></i>Mitra Kami
+                    </h2>
+                    <div class="partners-grid">
+                        <div class="partner-item">
+                            <img src="./Img/City_of_Surabaya_Logo.svg.png" alt="Logo Kota Surabaya" class="partner-logo" loading="lazy">
+                            <h4>Pemerintah Kota Surabaya</h4>
+                        </div>
+                        <div class="partner-item">
+                            <img src="./Img/Lambang_Badan_Pusat_Statistik_(BPS)_Indonesia.svg.png" alt="Logo BPS Indonesia" class="partner-logo" loading="lazy">
+                            <h4>Badan Pusat Statistik</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-4" role="contentinfo">
         <div class="container">
-            <div class="contribution-title">Kontribusi & Partisipasi</div>
-            <div class="contribution-text">
-                Kami membuka ruang kontribusi untuk masyarakat<br>
-                dalam bentuk laporan sosial, pembaruan data lokal,<br>
-                dan pengembangan fitur lanjutan berbasis komunitas.
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="footer-brand">
+                        <img src="./Img/Hasil akhr.svg" alt="UniMap Logo" width="30" height="30" class="me-2">
+                        <span class="footer-brand-text">UniMap</span>
+                    </div>
+                    <p class="footer-description">
+                        Platform WebGIS untuk visualisasi dan analisis data kemiskinan di Surabaya.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-links">
+                        <a href="./Halaman/about.html" class="footer-link">Tentang</a>
+                        <a href="./Halaman/contact.html" class="footer-link">Kontak</a>
+                        <a href="./Halaman/privacy.html" class="footer-link">Privasi</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Navy Divider -->
-    <div class="navy-divider"></div>
+    </footer>
 
-    <!--Kontribusi-->
-    <div class="Mitra">
-        <div class="kontainer-mitra">
-            <div class="mitra-title">Mitra Kami</div>
-            <img src="./Img/City_of_Surabaya_Logo.svg.png" alt="" class="mitra-kami">
-            <img src="./Img/Lambang_Badan_Pusat_Statistik_(BPS)_Indonesia.svg.png" alt="" class="mitra-kami2">
-        </div>
-    </div>
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Kembali ke atas">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-
-    <!-- Bootstrap JS Bundle with Popper -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
     <script src="./script.js"></script>
 </body>
 

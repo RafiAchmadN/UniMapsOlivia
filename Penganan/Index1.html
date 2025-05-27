@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,28 +9,29 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./style3.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../index.html">
                 <div class="logo">
-                    <img src="/Img/Hasil akhr.svg" alt="">
+                    <img src="../Img/Hasil akhr.svg" alt="UniMap Logo">
                 </div>
             </a>
-            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/index.html">Beranda</a>
+                        <a class="nav-link" href="../index.html">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/index.html#PetaInteraktif">Peta Interaktif</a>
-                    </li> 
+                        <a class="nav-link" href="../index.html#PetaInteraktif">Peta Interaktif</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -40,7 +42,7 @@
         <div class="container">
             <h1 class="hero-title">PENANGANAN</h1>
             <p class="hero-subtitle">Program kepelatihan dan kemitraan sosial di Kecamatan Surabaya</p>
-            
+
             <div class="filter-section">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
@@ -48,29 +50,60 @@
                             <div class="filter-dropdown">
                                 <i class="fas fa-map-marker-alt me-2" style="color: #e74c3c;"></i>
                                 <select id="kecamatan">
-                                    <option>Kecamatan</option>
-                                    <option>Genteng</option>
-                                    <option>Tambaksari</option>
-                                    <option>Gubeng</option>
-                                    <option>Sukolilo</option>
+                                    <option value="">Kecamatan</option>
+                                    <option value="asemrowo">Asemrowo</option>
+                                    <option value="benowo">Benowo</option>
+                                    <option value="bubutan">Bubutan</option>
+                                    <option value="bulak">Bulak</option>
+                                    <option value="dukuh-pakis">Dukuh Pakis</option>
+                                    <option value="gayungan">Gayungan</option>
+                                    <option value="genteng">Genteng</option>
+                                    <option value="gubeng">Gubeng</option>
+                                    <option value="gunung-anyar">Gunung Anyar</option>
+                                    <option value="jambangan">Jambangan</option>
+                                    <option value="karang-pilang">Karang Pilang</option>
+                                    <option value="kenjeran">Kenjeran</option>
+                                    <option value="krembangan">Krembangan</option>
+                                    <option value="lakarsantri">Lakarsantri</option>
+                                    <option value="mulyorejo">Mulyorejo</option>
+                                    <option value="pabean-cantian">Pabean Cantian</option>
+                                    <option value="pakal">Pakal</option>
+                                    <option value="rungkut">Rungkut</option>
+                                    <option value="sambikerep">Sambikerep</option>
+                                    <option value="sawahan">Sawahan</option>
+                                    <option value="semampir">Semampir</option>
+                                    <option value="simokerto">Simokerto</option>
+                                    <option value="sukolilo">Sukolilo</option>
+                                    <option value="sukomanunggal">Sukomanunggal</option>
+                                    <option value="tambaksari">Tambaksari</option>
+                                    <option value="tandes">Tandes</option>
+                                    <option value="tegalsari">Tegalsari</option>
+                                    <option value="tenggilis">Tenggilis</option>
+                                    <option value="kendangsari">Kendangsari</option>
+                                    <option value="kutisari">Kutisari</option>
+                                    <option value="wiyung">Wiyung</option>
                                 </select>
                             </div>
                             <div class="filter-dropdown">
                                 <i class="fas fa-graduation-cap me-2" style="color: #e74c3c;"></i>
                                 <select id="jenisPelatihan">
-                                    <option>Jenis Pelatihan</option>
-                                    <option>Kewirausahaan</option>
-                                    <option>Keahlian Digital</option>
-                                    <option>Keterampilan Teknis</option>
+                                    <option value="">Jenis Pelatihan</option>
+                                    <option value="kewirausahaan">Kewirausahaan</option>
+                                    <option value="keahlian-digital">Keahlian Digital</option>
+                                    <option value="keterampilan-teknis">Keterampilan Teknis</option>
+                                    <option value="pertanian-urban">Pertanian Urban</option>
+                                    <option value="kerajinan-tangan">Kerajinan Tangan</option>
+                                    <option value="kuliner">Kuliner</option>
                                 </select>
                             </div>
                             <div class="filter-dropdown">
                                 <i class="fas fa-users me-2" style="color: #e74c3c;"></i>
                                 <select id="jenisMitra">
-                                    <option>Jenis Mitra / Komunitas</option>
-                                    <option>UMKM</option>
-                                    <option>Karang Taruna</option>
-                                    <option>Organisasi Sosial</option>
+                                    <option value="">Jenis Mitra / Komunitas</option>
+                                    <option value="umkm">UMKM</option>
+                                    <option value="karang-taruna">Karang Taruna</option>
+                                    <option value="organisasi-sosial">Organisasi Sosial</option>
+                                    <option value="lembaga-pendidikan">Lembaga Pendidikan</option>
                                 </select>
                             </div>
                         </div>
@@ -103,49 +136,8 @@
 
             <!-- Training Cards -->
             <div id="pelatihan-content">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="training-card">
-                            <div class="card-header">
-                                <div>
-                                    <div class="card-title">Pelatihan</div>
-                                    <div class="card-subtitle">Pelatihan Kewirausahaan</div>
-                                    <div class="card-location">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Genteng
-                                    </div>
-                                    <div class="card-organization">
-                                        <i class="fas fa-building"></i>
-                                        UMKM Genteng
-                                    </div>
-                                </div>
-                                <div class="card-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="training-card">
-                            <div class="card-header">
-                                <div>
-                                    <div class="card-title">Pelatihan</div>
-                                    <div class="card-subtitle">Pelatihan Keahlian Digital</div>
-                                    <div class="card-location">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Tambaksari
-                                    </div>
-                                    <div class="card-organization">
-                                        <i class="fas fa-building"></i>
-                                        Disnaker Genteng
-                                    </div>
-                                </div>
-                                <div class="card-icon">
-                                    <i class="fas fa-laptop"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row" id="trainingCardsContainer">
+                    <!-- Cards will be dynamically generated -->
                 </div>
 
                 <!-- Community Card -->
@@ -166,76 +158,267 @@
 
             <!-- Mitra Content (Hidden by default) -->
             <div id="mitra-content" style="display: none;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="training-card">
-                            <div class="card-header">
-                                <div>
-                                    <div class="card-title">Mitra</div>
-                                    <div class="card-subtitle">UMKM Genteng</div>
-                                    <div class="card-location">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Genteng
-                                    </div>
-                                    <div class="card-organization">
-                                        <i class="fas fa-handshake"></i>
-                                        Kemitraan Aktif
-                                    </div>
-                                </div>
-                                <div class="card-icon">
-                                    <i class="fas fa-store"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="training-card">
-                            <div class="card-header">
-                                <div>
-                                    <div class="card-title">Mitra</div>
-                                    <div class="card-subtitle">Karang Taruna Tambaksari</div>
-                                    <div class="card-location">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Tambaksari
-                                    </div>
-                                    <div class="card-organization">
-                                        <i class="fas fa-handshake"></i>
-                                        Organisasi Mitra
-                                    </div>
-                                </div>
-                                <div class="card-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row" id="mitraCardsContainer">
+                    <!-- Mitra cards will be dynamically generated -->
                 </div>
             </div>
 
             <!-- Pagination -->
             <nav>
-                <ul class="pagination pagination-custom">
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">...</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">5</a>
-                    </li>
+                <ul class="pagination pagination-custom" id="paginationContainer">
+                    <!-- Pagination will be dynamically generated -->
                 </ul>
             </nav>
         </div>
     </section>
 
+    <!-- Training Detail Modal -->
+    <div class="modal fade" id="trainingDetailModal" tabindex="-1" aria-labelledby="trainingDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="trainingDetailModalLabel">Detail Pelatihan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="trainingDetailContent">
+                    <!-- Content will be dynamically loaded -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary">Daftar Pelatihan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Tab switching functionality
+        // Sample training data with all 31 districts
+        const trainingData = [{
+            id: 1,
+            title: "Pelatihan Kewirausahaan",
+            location: "Genteng",
+            organization: "UMKM Genteng",
+            type: "kewirausahaan",
+            icon: "fas fa-chart-line",
+            description: "Program pelatihan kewirausahaan untuk mengembangkan usaha mikro dan kecil di wilayah Genteng. Peserta akan belajar tentang manajemen bisnis, pemasaran digital, dan pengelolaan keuangan.",
+            schedule: "Setiap Sabtu, 09:00-12:00",
+            capacity: 25,
+            instructor: "Budi Santoso, S.E.",
+            duration: "8 minggu"
+        }, {
+            id: 2,
+            title: "Pelatihan Keahlian Digital",
+            location: "Tambaksari",
+            organization: "Disnaker Tambaksari",
+            type: "keahlian-digital",
+            icon: "fas fa-laptop",
+            description: "Pelatihan komputer dasar dan digital marketing untuk meningkatkan kemampuan teknologi masyarakat Tambaksari.",
+            schedule: "Senin-Rabu, 14:00-16:00",
+            capacity: 20,
+            instructor: "Sari Dewi, S.Kom.",
+            duration: "6 minggu"
+        }, {
+            id: 3,
+            title: "Keterampilan Teknis Otomotif",
+            location: "Gubeng",
+            organization: "Karang Taruna Gubeng",
+            type: "keterampilan-teknis",
+            icon: "fas fa-wrench",
+            description: "Pelatihan service motor dan mobil untuk pemuda di wilayah Gubeng.",
+            schedule: "Kamis-Jumat, 08:00-11:00",
+            capacity: 15,
+            instructor: "Ahmad Fauzi",
+            duration: "10 minggu"
+        }, {
+            id: 4,
+            title: "Pertanian Urban",
+            location: "Sukolilo",
+            organization: "Komunitas Hijau Sukolilo",
+            type: "pertanian-urban",
+            icon: "fas fa-seedling",
+            description: "Belajar bercocok tanam di lahan terbatas dengan teknik hidroponik dan vertikultur.",
+            schedule: "Minggu, 07:00-10:00",
+            capacity: 30,
+            instructor: "Dr. Rina Sari",
+            duration: "4 minggu"
+        }, {
+            id: 5,
+            title: "Kerajinan Tangan",
+            location: "Rungkut",
+            organization: "UMKM Kreatif Rungkut",
+            type: "kerajinan-tangan",
+            icon: "fas fa-paint-brush",
+            description: "Membuat kerajinan dari bahan daur ulang untuk meningkatkan pendapatan keluarga.",
+            schedule: "Selasa-Kamis, 13:00-15:00",
+            capacity: 20,
+            instructor: "Ibu Siti Aminah",
+            duration: "6 minggu"
+        }, {
+            id: 6,
+            title: "Kuliner Tradisional",
+            location: "Sawahan",
+            organization: "Paguyuban Kuliner Sawahan",
+            type: "kuliner",
+            icon: "fas fa-utensils",
+            description: "Pelatihan memasak makanan tradisional Surabaya untuk usaha kuliner rumahan.",
+            schedule: "Sabtu, 15:00-18:00",
+            capacity: 18,
+            instructor: "Chef Bambang",
+            duration: "5 minggu"
+        }];
+
+        // Sample mitra data
+        const mitraData = [{
+            id: 1,
+            name: "UMKM Genteng",
+            location: "Genteng",
+            type: "umkm",
+            status: "Aktif",
+            icon: "fas fa-store"
+        }, {
+            id: 2,
+            name: "Karang Taruna Tambaksari",
+            location: "Tambaksari",
+            type: "karang-taruna",
+            status: "Aktif",
+            icon: "fas fa-users"
+        }, {
+            id: 3,
+            name: "Komunitas Hijau Sukolilo",
+            location: "Sukolilo",
+            type: "organisasi-sosial",
+            status: "Aktif",
+            icon: "fas fa-leaf"
+        }, {
+            id: 4,
+            name: "UMKM Kreatif Rungkut",
+            location: "Rungkut",
+            type: "umkm",
+            status: "Aktif",
+            icon: "fas fa-palette"
+        }];
+
+        let currentPage = 1;
+        const itemsPerPage = 4;
+        let currentTab = 'pelatihan';
+        let filteredData = trainingData;
+
+        // Load partnerships from localStorage
+        function loadPartnerships() {
+            const partnerships = JSON.parse(localStorage.getItem('partnerships') || '[]');
+            return partnerships.filter(p => p.status === 'approved').map(p => ({
+                id: p.id,
+                name: p.orgName,
+                location: p.kecamatan,
+                type: p.orgType,
+                status: 'Aktif',
+                icon: 'fas fa-handshake',
+                trainingType: p.trainingType,
+                description: p.description,
+                schedule: p.schedule,
+                capacity: p.capacity,
+                instructor: p.contactPerson
+            }));
+        }
+
+        // Combine static and dynamic data
+        function getAllMitra() {
+            const staticMitra = mitraData;
+            const dynamicMitra = loadPartnerships();
+            return [...staticMitra, ...dynamicMitra];
+        }
+
+        function renderCards(data, page = 1) {
+            const container = currentTab === 'pelatihan' ?
+                document.getElementById('trainingCardsContainer') :
+                document.getElementById('mitraCardsContainer');
+
+            container.innerHTML = '';
+
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageData = data.slice(startIndex, endIndex);
+
+            pageData.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'col-md-6 mb-3';
+                card.style.animationDelay = `${index * 0.1}s`;
+
+                if (currentTab === 'pelatihan') {
+                    card.innerHTML = `
+                        <div class="training-card" onclick="showTrainingDetail(${item.id})" style="animation: fadeInUp 0.6s ease forwards; opacity: 0;">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Pelatihan</div>
+                                    <div class="card-subtitle">${item.title}</div>
+                                    <div class="card-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        ${item.location}
+                                    </div>
+                                    <div class="card-organization">
+                                        <i class="fas fa-building"></i>
+                                        ${item.organization}
+                                    </div>
+                                </div>
+                                <div class="card-icon">
+                                    <i class="${item.icon}"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    card.innerHTML = `
+                        <div class="training-card" style="animation: fadeInUp 0.6s ease forwards; opacity: 0;">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Mitra</div>
+                                    <div class="card-subtitle">${item.name}</div>
+                                    <div class="card-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        ${item.location}
+                                    </div>
+                                    <div class="card-organization">
+                                        <i class="fas fa-handshake"></i>
+                                        ${item.status}
+                                    </div>
+                                </div>
+                                <div class="card-icon">
+                                    <i class="${item.icon}"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                container.appendChild(card);
+            });
+        }
+
+        function renderPagination(totalItems) {
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const container = document.getElementById('paginationContainer');
+            container.innerHTML = '';
+
+            for (let i = 1; i <= totalPages; i++) {
+                const li = document.createElement('li');
+                li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+                li.innerHTML = `<a class="page-link" href="#" onclick="changePage(${i})">${i}</a>`;
+                container.appendChild(li);
+            }
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            const data = currentTab === 'pelatihan' ? filteredData : getAllMitra();
+            renderCards(data, page);
+            renderPagination(data.length);
+        }
+
         function switchTab(tabName) {
+            currentTab = tabName;
+            currentPage = 1;
+
             // Update tab buttons
             document.querySelectorAll('.tab-button').forEach(btn => {
                 btn.classList.remove('active');
@@ -246,35 +429,71 @@
             if (tabName === 'pelatihan') {
                 document.getElementById('pelatihan-content').style.display = 'block';
                 document.getElementById('mitra-content').style.display = 'none';
+                renderCards(filteredData, 1);
+                renderPagination(filteredData.length);
             } else {
                 document.getElementById('pelatihan-content').style.display = 'none';
                 document.getElementById('mitra-content').style.display = 'block';
+                const allMitra = getAllMitra();
+                renderCards(allMitra, 1);
+                renderPagination(allMitra.length);
             }
         }
 
-        // Filter functionality
+        function showTrainingDetail(trainingId) {
+            const training = trainingData.find(t => t.id === trainingId);
+            if (training) {
+                document.getElementById('trainingDetailContent').innerHTML = `
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4>${training.title}</h4>
+                            <p class="text-muted mb-3">
+                                <i class="fas fa-map-marker-alt me-2"></i>${training.location} | 
+                                <i class="fas fa-building ms-2 me-2"></i>${training.organization}
+                            </p>
+                            <p>${training.description}</p>
+                            
+                            <h6 class="mt-4">Detail Pelatihan:</h6>
+                            <ul class="list-unstyled">
+                                <li><strong>Jadwal:</strong> ${training.schedule}</li>
+                                <li><strong>Durasi:</strong> ${training.duration}</li>
+                                <li><strong>Kapasitas:</strong> ${training.capacity} peserta</li>
+                                <li><strong>Instruktur:</strong> ${training.instructor}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3 bg-light rounded">
+                                <i class="${training.icon}" style="font-size: 3rem; color: #e74c3c;"></i>
+                                <h6 class="mt-2">${training.type.replace('-', ' ').toUpperCase()}</h6>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                const modal = new bootstrap.Modal(document.getElementById('trainingDetailModal'));
+                modal.show();
+            }
+        }
+
         function applyFilters() {
             const kecamatan = document.getElementById('kecamatan').value;
             const jenisPelatihan = document.getElementById('jenisPelatihan').value;
             const jenisMitra = document.getElementById('jenisMitra').value;
 
-            // Show loading state
-            const filterBtn = event.target;
-            const originalText = filterBtn.textContent;
-            filterBtn.textContent = 'Memuat...';
-            filterBtn.disabled = true;
+            filteredData = trainingData.filter(item => {
+                return (!kecamatan || item.location.toLowerCase().includes(kecamatan.toLowerCase())) &&
+                    (!jenisPelatihan || item.type === jenisPelatihan) &&
+                    (!jenisMitra || item.organization.toLowerCase().includes(jenisMitra.toLowerCase()));
+            });
 
-            // Simulate API call
-            setTimeout(() => {
-                filterBtn.textContent = originalText;
-                filterBtn.disabled = false;
-                
-                // Show success message
-                showToast('Filter berhasil diterapkan!');
-            }, 1000);
+            currentPage = 1;
+            renderCards(filteredData, 1);
+            renderPagination(filteredData.length);
+
+            // Show success message
+            showToast('Filter berhasil diterapkan!');
         }
 
-        // Toast notification
         function showToast(message) {
             const toast = document.createElement('div');
             toast.className = 'toast-notification';
@@ -290,15 +509,15 @@
                 z-index: 1000;
                 animation: slideIn 0.3s ease;
             `;
-            
+
             document.body.appendChild(toast);
-            
+
             setTimeout(() => {
                 toast.remove();
             }, 3000);
         }
 
-        // Add slide-in animation
+        // Add CSS animations
         const style = document.createElement('style');
         style.textContent = `
             @keyframes slideIn {
@@ -311,70 +530,36 @@
                     opacity: 1;
                 }
             }
+            
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .training-card {
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+            
+            .training-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
         `;
         document.head.appendChild(style);
 
-        // Pagination functionality
-        document.querySelectorAll('.pagination .page-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Remove active class from all items
-                document.querySelectorAll('.pagination .page-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // Add active class to clicked item
-                this.parentElement.classList.add('active');
-                
-                // Smooth scroll to top of content
-                document.querySelector('.content-section').scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Mobile menu enhancement
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            const navbarToggler = document.querySelector('.navbar-toggler');
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!navbarCollapse.contains(e.target) && !navbarToggler.contains(e.target)) {
-                    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-                        toggle: false
-                    });
-                    bsCollapse.hide();
-                }
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add loading states to cards on hover
-        document.querySelectorAll('.training-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.cursor = 'pointer';
-            });
-            
-            card.addEventListener('click', function() {
-                // Simulate card click action
-                showToast('Membuka detail program...');
-            });
+            renderCards(trainingData, 1);
+            renderPagination(trainingData.length);
         });
     </script>
 </body>
+
 </html>

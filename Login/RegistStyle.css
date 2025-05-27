@@ -1,477 +1,300 @@
-/* Style.css untuk halaman register Unimap */
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
 
-.register-akun {
-    background-color: #fffefd;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
+       body {
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           height: 100vh;
+           overflow: hidden;
+       }
 
-.register-akun .div {
-    background-color: #fffefd;
-    width: 1440px;
-    height: 900px;
-    position: relative;
-}
+       .split-container {
+           display: flex;
+           height: 100vh;
+       }
 
-.register-akun .overlap {
-    position: absolute;
-    width: 1354px;
-    height: 900px;
-    top: 0;
-    left: 86px;
-}
+       .left-panel {
+           flex: 1;
+           background: #f8f9fa;
+           padding: 2rem;
+           overflow-y: auto;
+           position: relative;
+       }
 
-.register-akun .overlap-group {
-    position: absolute;
-    width: 1288px;
-    height: 900px;
-    top: 0;
-    left: 66px;
-}
+       .right-panel {
+           flex: 1;
+           background: linear-gradient(135deg, #4a5568 0%, #2d3748 50%, #1a202c 100%);
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           text-align: center;
+           padding: 2rem;
+           position: relative;
+           overflow: hidden;
+       }
 
-.register-akun .vector {
-    position: absolute;
-    width: 790px;
-    height: 900px;
-    top: 0;
-    left: 498px;
-}
+       .navbar-brand {
+           font-weight: bold;
+           font-size: 1.5rem;
+           color: #2d3748;
+           text-decoration: none;
+       }
 
-.register-akun .background,
-.register-akun .background-2,
-.register-akun .background-3 {
-    position: absolute;
-    border: 1px solid;
-    border-color: #ffffff80;
-}
+       .navbar-toggler {
+           border: none;
+           padding: 0;
+           background: none;
+       }
 
-.register-akun .background {
-    width: 66px;
-    height: 63px;
-    top: 536px;
-    left: 1163px;
-    border-radius: 33px / 31.5px;
-}
+       .navbar-toggler-icon {
+           background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+       }
 
-.register-akun .background-2 {
-    width: 27px;
-    height: 26px;
-    top: 44px;
-    left: 1215px;
-    border-radius: 13.5px / 13px;
-}
+       .register-title {
+           font-size: 2rem;
+           font-weight: 600;
+           color: #2d3748;
+           margin: 2rem 0 1rem 0;
+       }
 
-.register-akun .background-3 {
-    width: 41px;
-    height: 39px;
-    top: 61px;
-    left: 889px;
-    border-radius: 20.5px / 19.5px;
-}
+       .register-subtitle {
+           color: #718096;
+           margin-bottom: 2rem;
+           line-height: 1.5;
+       }
 
-.register-akun .form-registrasi {
-    position: absolute;
-    width: 454px;
-    height: 717px;
-    top: 102px;
-    left: 0;
-}
+       .form-label {
+           color: #2d3748;
+           font-weight: 500;
+           margin-bottom: 0.5rem;
+       }
 
-.register-akun .header {
-    position: absolute;
-    width: 458px;
-    height: 120px;
-    top: 0;
-    left: 0;
-    background-color: transparent;
-}
+       .form-control {
+           border: none;
+           border-bottom: 2px solid #e2e8f0;
+           border-radius: 0;
+           padding: 0.75rem 0;
+           background: transparent;
+           font-size: 1rem;
+           transition: all 0.3s ease;
+       }
 
-.register-akun .text-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-family: "Open Sans-SemiBold", Helvetica;
-    font-weight: 600;
-    color: #000000;
-    font-size: 35px;
-    letter-spacing: 0;
-    line-height: normal;
-}
+       .form-control:focus {
+           box-shadow: none;
+           border-bottom-color: #48bb78;
+           background: transparent;
+       }
 
-.register-akun .p {
-    position: absolute;
-    width: 454px;
-    top: 71px;
-    left: 0;
-    font-family: "Open Sans-Regular", Helvetica;
-    font-weight: 400;
-    color: #b8b8b8;
-    font-size: 16px;
-    letter-spacing: 0;
-    line-height: normal;
-}
+       .form-control.is-valid {
+           border-bottom-color: #48bb78;
+       }
 
-.register-akun .email,
-.register-akun .username {
-    position: absolute;
-    width: 401px;
-    left: 0;
-}
+       .form-control.is-invalid {
+           border-bottom-color: #f56565;
+       }
 
-.register-akun .email {
-    top: 157px;
-    height: 119px;
-}
+       .password-container {
+           position: relative;
+       }
 
-.register-akun .username {
-    top: 297px;
-    height: 118px;
-}
+       .password-toggle {
+           position: absolute;
+           right: 0;
+           top: 50%;
+           transform: translateY(-50%);
+           background: none;
+           border: none;
+           color: #a0aec0;
+           cursor: pointer;
+           padding: 0.5rem;
+       }
 
-.register-akun .text-wrapper-2,
-.register-akun .text-wrapper-4 {
-    position: absolute;
-    font-family: "Nunito Sans-SemiBold", Helvetica;
-    font-weight: 600;
-    color: #263a43;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: 31.3px;
-}
+       .password-strength {
+           position: absolute;
+           right: 40px;
+           top: 30%;
+           transform: translateX(-100%);
+           font-size: 0.8rem;
+           font-weight: 500;
+       }
 
-.register-akun .text-wrapper-2 {
-    width: 153px;
-    top: 0;
-    left: 0;
-}
+       .strength-weak {
+           color: #f56565;
+       }
 
-.register-akun .text-wrapper-4 {
-    width: 206px;
-    top: 0;
-    left: 0;
-}
+       .strength-medium {
+           color: #ed8936;
+       }
 
-.register-akun .component,
-.register-akun .div-wrapper {
-    position: absolute;
-    width: 399px;
-    height: 70px;
-    left: 0;
-    background-color: #ffffff;
-    border-radius: 6px;
-    border: 0.6px solid;
-    border-color: #b1b1b1;
-}
+       .strength-strong {
+           color: #48bb78;
+       }
 
-.register-akun .component {
-    top: 49px;
-}
+       .form-check {
+           margin: 1.5rem 0;
+       }
 
-.register-akun .div-wrapper {
-    top: 48px;
-}
+       .form-check-input:checked {
+           background-color: #48bb78;
+           border-color: #48bb78;
+       }
 
-.register-akun .text-wrapper-3 {
-    position: absolute;
-    width: 399px;
-    height: 70px;
-    font-family: "Poppins-Regular", Helvetica;
-    font-weight: 400;
-    color: #bcbec0;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: normal;
-}
+       .form-check-label {
+           color: #718096;
+           font-size: 0.9rem;
+       }
 
-.register-akun .rectangle {
-    position: absolute;
-    width: 399px;
-    height: 4px;
-    top: 65px;
-    left: -1px;
-    background-color: #53e28c;
-    border-radius: 0px 0px 5px 5px;
-}
+       .forgot-password {
+           color: #718096;
+           text-decoration: none;
+           font-size: 0.9rem;
+           float: right;
+       }
 
-.register-akun .daftar {
-    position: absolute;
-    width: 399px;
-    height: 70px;
-    top: 647px;
-    left: 0;
-    background-color: #191d32;
-    border-radius: 6px;
-    box-shadow: 0px 4px 30px #263a4326;
-}
+       .forgot-password:hover {
+           color: #4299e1;
+           text-decoration: underline;
+       }
 
-.register-akun .text-wrapper-5 {
-    position: absolute;
-    width: 78px;
-    top: 18px;
-    left: 169px;
-    font-family: "Nunito Sans-Bold", Helvetica;
-    font-weight: 700;
-    color: #ffffff;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: 31.3px;
-}
+       .btn-register {
+           background: #2d3748;
+           border: none;
+           border-radius: 8px;
+           padding: 1rem;
+           font-weight: 600;
+           font-size: 1.1rem;
+           width: 100%;
+           margin-top: 2rem;
+           transition: all 0.3s ease;
+       }
 
-.register-akun .overlap-2 {
-    position: absolute;
-    width: 409px;
-    height: 163px;
-    top: 438px;
-    left: 0;
-}
+       .btn-register:hover {
+           background: #4a5568;
+           transform: translateY(-2px);
+           box-shadow: 0 5px 15px rgba(45, 55, 72, 0.3);
+       }
 
-.register-akun .password,
-.register-akun .kolom-pengisian {
-    position: absolute;
-    width: 409px;
-    height: 163px;
-    top: 0;
-    left: 0;
-}
+       .right-panel h2 {
+           color: white;
+           font-size: 2.5rem;
+           font-weight: 600;
+           margin-bottom: 1rem;
+       }
 
-.register-akun .overlap-3 {
-    position: relative;
-    width: 417px;
-    height: 163px;
-}
+       .right-panel p {
+           color: #cbd5e0;
+           font-size: 1.1rem;
+           line-height: 1.6;
+           margin-bottom: 2rem;
+           max-width: 400px;
+       }
 
-.register-akun .overlap-4 {
-    position: absolute;
-    width: 399px;
-    height: 70px;
-    top: 47px;
-    left: 0;
-    background-color: #ffffff;
-    border-radius: 6px;
-    border: 0.6px solid;
-    border-color: #b1b1b1;
-}
+       .btn-login {
+           background: transparent;
+           border: 2px solid white;
+           color: white;
+           border-radius: 25px;
+           padding: 0.75rem 2rem;
+           font-weight: 600;
+           text-decoration: none;
+           transition: all 0.3s ease;
+       }
 
-.register-akun .text-wrapper-6 {
-    position: absolute;
-    width: 399px;
-    height: 70px;
-    font-family: "Nunito Sans-Regular", Helvetica;
-    font-weight: 400;
-    color: #8e8e8e;
-    font-size: 16px;
-    letter-spacing: 0;
-    line-height: 25.0px;
-}
+       .btn-login:hover {
+           background: white;
+           color: #2d3748;
+           transform: translateY(-2px);
+       }
 
-.register-akun .eye {
-    position: absolute;
-    width: 22px;
-    height: 19px;
-    top: 24px;
-    left: 352px;
-    overflow: hidden;
-}
+       .decorative-circles {
+           position: absolute;
+           width: 100%;
+           height: 100%;
+           pointer-events: none;
+       }
 
-.register-akun .group-wrapper {
-    position: relative;
-    height: 12px;
-    top: 3px;
-    background-image: url(./img/image.png);
-    background-size: 100% 100%;
-}
+       .circle {
+           position: absolute;
+           border: 2px solid rgba(255, 255, 255, 0.1);
+           border-radius: 50%;
+       }
 
-.register-akun .group {
-    position: relative;
-    width: 9px;
-    height: 8px;
-    top: 2px;
-    left: 7px;
-    background-image: url(./img/group.png);
-    background-size: 100% 100%;
-}
+       .circle-1 {
+           width: 200px;
+           height: 200px;
+           top: -50px;
+           right: -50px;
+       }
 
-.register-akun .text-wrapper-7,
-.register-akun .text-wrapper-8,
-.register-akun .text-wrapper-9 {
-    position: absolute;
-    font-family: "Nunito Sans-Regular", Helvetica;
-    font-weight: 400;
-    color: #8e8e8e;
-    letter-spacing: 0;
-}
+       .circle-2 {
+           width: 150px;
+           height: 150px;
+           top: 20%;
+           left: -30px;
+       }
 
-.register-akun .text-wrapper-7 {
-    font-size: 16px;
-    top: 138px;
-    left: 266px;
-    line-height: 25.0px;
-    width: 143px;
-}
+       .circle-3 {
+           width: 100px;
+           height: 100px;
+           bottom: 20%;
+           right: 20%;
+       }
 
-.register-akun .text-wrapper-8 {
-    font-size: 14px;
-    top: 139px;
-    left: 26px;
-    line-height: 21.9px;
-    width: 200px;
-}
+       .circle-4 {
+           width: 300px;
+           height: 300px;
+           bottom: -100px;
+           left: -100px;
+       }
 
-.register-akun .text-wrapper-9 {
-    font-size: 20px;
-    font-family: "Nunito Sans-SemiBold", Helvetica;
-    font-weight: 600;
-    top: 0;
-    left: 0;
-    line-height: 31.3px;
-    width: 240px;
-    color: #263a43;
-}
+       .alert {
+           border-radius: 8px;
+           margin-bottom: 1rem;
+       }
 
-.register-akun .rectangle-2 {
-    position: absolute;
-    width: 15px;
-    height: 14px;
-    top: 144px;
-    left: 0;
-    background-color: #c4c4c4;
-    border-radius: 2px;
-}
+       @media (max-width: 768px) {
+           .split-container {
+               flex-direction: column;
+           }
 
-.register-akun .keamanan-password {
-    position: absolute;
-    width: 110px;
-    height: 25px;
-    top: 3px;
-    left: 291px;
-}
+           .left-panel,
+           .right-panel {
+               flex: none;
+               height: auto;
+           }
 
-.register-akun .text-wrapper-10 {
-    position: absolute;
-    top: 3px;
-    left: 32px;
-    font-family: "Poppins-Regular", Helvetica;
-    font-weight: 400;
-    color: #008a26;
-    font-size: 12px;
-    letter-spacing: 0;
-    line-height: 18.8px;
-    white-space: nowrap;
-}
+           .left-panel {
+               min-height: 60vh;
+           }
 
-.popup-error {
-    display: none;
-    color: #d8000c;
-    background-color: #ffe4e4;
-    border: 1px solid #d8000c;
-    padding: 8px;
-    margin-top: 6px;
-    font-size: 14px;
-    border-radius: 4px;
-}
+           .right-panel {
+               min-height: 40vh;
+           }
 
-.register-akun .masuk {
-    position: absolute;
-    width: 125px;
-    height: 50px;
-    top: 517px;
-    left: 830px;
-}
+           .register-title {
+               font-size: 1.5rem;
+           }
 
-.register-akun .overlap-6 {
-    position: relative;
-    height: 50px;
-    border-radius: 40px;
-}
+           .right-panel h2 {
+               font-size: 2rem;
+           }
+       }
 
-.register-akun .rectangle-3 {
-    position: absolute;
-    width: 125px;
-    height: 50px;
-    top: -100px;
-    left: 0;
-    border-radius: 40px;
-    border: 1px solid;
-    border-color: #ffffff;
-}
+       @media (max-width: 576px) {
 
-.register-akun .text-wrapper-11 {
-    position: absolute;
-    width: 78px;
-    top: -90px;
-    left: 33px;
-    font-family: "Nunito Sans-Bold", Helvetica;
-    font-weight: 700;
-    color: #ffffff;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: 31.3px;
-}
+           .left-panel,
+           .right-panel {
+               padding: 1rem;
+           }
 
-.register-akun .awan {
-    position: absolute;
-    width: 234px;
-    height: 195px;
-    top: 603px;
-    left: 1054px;
-}
+           .register-title {
+               font-size: 1.3rem;
+           }
 
-.register-akun .img {
-    position: absolute;
-    width: 678px;
-    height: 213px;
-    top: 585px;
-    left: 403px;
-}
-
-.register-akun .text-wrapper-12 {
-    position: absolute;
-    height: 108px;
-    top: 200px;
-    left: 634px;
-    width: 600px;
-    font-family: "Poppins-ExtraBold", Helvetica;
-    font-weight: 800;
-    color: #ffffff;
-    font-size: 52px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.register-akun .untuk-tetap {
-    position: absolute;
-    height: 84px;
-    top: 300px;
-    left: 700px;
-    width: 400px;
-    font-family: "Poppins-Light", Helvetica;
-    font-weight: 300;
-    color: #ffffff;
-    font-size: 28px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.register-akun .text-wrapper-13 {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    font-family: "Roboto-Bold", Helvetica;
-    font-weight: 700;
-    color: #191d32;
-    font-size: 30px;
-    letter-spacing: 0;
-    line-height: normal;
-    white-space: nowrap;
-}
-
-.register-akun .navigasi {
-    position: absolute;
-    width: 32px;
-    height: 21px;
-    top: 40px;
-    left: 10px;
-}
+           .right-panel h2 {
+               font-size: 1.8rem;
+           }
+       }

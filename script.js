@@ -132,14 +132,14 @@ class UniMapApp {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("animate-in")
-                            // Unobserve after animation to improve performance
+                        // Unobserve after animation to improve performance
                         animationObserver.unobserve(entry.target)
                     }
                 })
             }, {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px",
-            },
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+        },
         )
 
         // Observe elements for animation
@@ -256,7 +256,6 @@ class UniMapApp {
     setupMapInteractions() {
         const mapOverlay = document.getElementById("mapOverlay")
         const interactiveMap = document.querySelector(".interactive-map")
-        const fullscreenBtn = document.getElementById("fullscreenBtn")
         const refreshBtn = document.getElementById("refreshBtn")
 
         // Hide map overlay after iframe loads
@@ -268,12 +267,7 @@ class UniMapApp {
             })
         }
 
-        // Fullscreen functionality
-        if (fullscreenBtn) {
-            fullscreenBtn.addEventListener("click", () => {
-                this.toggleMapFullscreen()
-            })
-        }
+
 
         // Refresh map
         if (refreshBtn) {
@@ -283,20 +277,6 @@ class UniMapApp {
         }
     }
 
-    toggleMapFullscreen() {
-        const mapContainer = document.querySelector(".map-container-interactive")
-        if (!mapContainer) return
-
-        if (!document.fullscreenElement) {
-            mapContainer.requestFullscreen().catch((err) => {
-                console.warn("Fullscreen not supported:", err)
-                    // Fallback: expand map container
-                mapContainer.classList.add("fullscreen-fallback")
-            })
-        } else {
-            document.exitFullscreen()
-        }
-    }
 
     refreshMap() {
         const interactiveMap = document.querySelector(".interactive-map")
@@ -722,7 +702,7 @@ class UniMapApp {
     // Utility functions
     throttle(func, limit) {
         let inThrottle
-        return function() {
+        return function () {
             const args = arguments
 
             if (!inThrottle) {
@@ -735,7 +715,7 @@ class UniMapApp {
 
     debounce(func, wait, immediate) {
         let timeout
-        return function() {
+        return function () {
 
             const args = arguments
             const later = () => {
@@ -824,16 +804,6 @@ const additionalStyles = `
           transform: translateY(0);
       }
   
-      .fullscreen-fallback {
-          position: fixed !important;
-          top: 0 !important;
-          left: 0 !important;
-          width: 100vw !important;
-          height: 100vh !important;
-          z-index: 9999 !important;
-          background: white !important;
-      }
-  
       .notification {
           font-weight: 500;
           border-left: 4px solid var(--secondary-color);
@@ -864,4 +834,4 @@ const styleSheet = document.createElement("style")
 styleSheet.textContent = additionalStyles
 document.head.appendChild(styleSheet)
 
-console.log("🎉 UniMap Enhanced Script Loaded Successfully!")
+console.log(" UniMap Enhanced Script Loaded Successfully!")

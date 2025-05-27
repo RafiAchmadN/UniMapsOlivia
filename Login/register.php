@@ -20,7 +20,7 @@ if (!$conn) {
 
 // Validate and sanitize inputs
 $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-$username = filter_var(trim($_POST['username']), FILTER_SANITIZE_STRING);
+$username = filter_var(trim($_POST['username']));
 $password_plain = trim($_POST['password']); // Get plain password
 
 if (empty($email) || empty($username) || empty($password_plain)) {

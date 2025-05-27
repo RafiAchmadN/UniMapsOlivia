@@ -1,199 +1,563 @@
 <!DOCTYPE html>
-<html lang="id">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register - UniMap</title>
-    <link rel="stylesheet" href="./globals.css">
-    <link rel="stylesheet" href="./Styleguide.css">
-    <link rel="stylesheet" href="./RegistStyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniMap - Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        .notif {
-            margin-top: 20px;
-            padding: 10px;
-            border-radius: 6px;
-            text-align: center;
-            font-size: 14px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .notif.success {
-            background-color: #d4ffe4;
-            color: #008a26;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            overflow: hidden;
         }
         
-        .notif.error {
-            background-color: #ffe4e4;
-            color: #a80000;
+        .split-container {
+            display: flex;
+            height: 100vh;
         }
         
-        .input-wrapper {
+        .left-panel {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 2rem;
+            overflow-y: auto;
             position: relative;
         }
         
-        .input-wrapper input:focus+.rectangle {
-            background-color: #53e28c;
-        }
-        
-        .form-options {
+        .right-panel {
+            flex: 1;
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 50%, #1a202c 100%);
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            margin-top: 8px;
-            margin-left: 5px;
-            gap: 10px;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
         }
         
-        .eye-icon {
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #2d3748;
+            text-decoration: none;
+        }
+        
+        .navbar-toggler {
+            border: none;
+            padding: 0;
+            background: none;
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .register-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .register-subtitle {
+            color: #718096;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+        
+        .form-label {
+            color: #2d3748;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control {
+            border: none;
+            border-bottom: 2px solid #e2e8f0;
+            border-radius: 0;
+            padding: 0.75rem 0;
+            background: transparent;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-bottom-color: #48bb78;
+            background: transparent;
+        }
+        
+        .form-control.is-valid {
+            border-bottom-color: #48bb78;
+        }
+        
+        .form-control.is-invalid {
+            border-bottom-color: #f56565;
+        }
+        
+        .password-container {
+            position: relative;
+        }
+        
+        .password-toggle {
             position: absolute;
-            top: 23px;
-            right: 15px;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #a0aec0;
             cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .password-strength {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .strength-weak { color: #f56565; }
+        .strength-medium { color: #ed8936; }
+        .strength-strong { color: #48bb78; }
+        
+        .form-check {
+            margin: 1.5rem 0;
+        }
+        
+        .form-check-input:checked {
+            background-color: #48bb78;
+            border-color: #48bb78;
+        }
+        
+        .form-check-label {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        .forgot-password {
+            color: #718096;
+            text-decoration: none;
+            font-size: 0.9rem;
+            float: right;
+        }
+        
+        .forgot-password:hover {
+            color: #4299e1;
+            text-decoration: underline;
+        }
+        
+        .btn-register {
+            background: #2d3748;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            width: 100%;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-register:hover {
+            background: #4a5568;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(45, 55, 72, 0.3);
+        }
+        
+        .right-panel h2 {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .right-panel p {
+            color: #cbd5e0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+        
+        .btn-login {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            border-radius: 25px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-login:hover {
+            background: white;
+            color: #2d3748;
+            transform: translateY(-2px);
+        }
+        
+        .decorative-circles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .circle {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            right: -50px;
+        }
+        
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            left: -30px;
+        }
+        
+        .circle-3 {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            right: 20%;
+        }
+        
+        .circle-4 {
+            width: 300px;
+            height: 300px;
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        .alert {
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .split-container {
+                flex-direction: column;
+            }
+            
+            .left-panel, .right-panel {
+                flex: none;
+                height: auto;
+            }
+            
+            .left-panel {
+                min-height: 60vh;
+            }
+            
+            .right-panel {
+                min-height: 40vh;
+            }
+            
+            .register-title {
+                font-size: 1.5rem;
+            }
+            
+            .right-panel h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .left-panel, .right-panel {
+                padding: 1rem;
+            }
+            
+            .register-title {
+                font-size: 1.3rem;
+            }
+            
+            .right-panel h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
-
 <body>
-    <div class="register-akun">
-        <div class="div">
-            <div class="overlap">
-                <div class="overlap-group">
-                    <img class="vector" src="./img/Vector Background.svg" alt="vector background">
-                    <div class="background"></div>
-                    <div class="background-2"></div>
-                    <div class="background-3"></div>
-
-                    <div class="form-registrasi">
-                        <header class="header">
-                            <div class="text-wrapper">Register akun anda</div>
-                            <p class="p">Dapatkan fitur tambahan seperti menyimpan lokasi favorit, mendapatkan rekomendasi pribadi, dan banyak lagi.</p>
-                        </header>
-
-                        <form action="register.php" method="POST">
-                            <div class="email">
-                                <label class="text-wrapper-2" for="email">Alamat Email</label>
-                                <div class="component">
-                                    <input type="email" name="email" id="email" placeholder="12345678@gmail.com" class="text-wrapper-3" required>
-
-                                    <div class="rectangle"></div>
-                                </div>
-                            </div>
-
-                            <div class="username">
-                                <label class="text-wrapper-4" for="username">Masukan nama anda</label>
-                                <div class="div-wrapper">
-                                    <input type="text" name="username" id="username" placeholder="ABCD_01" class="text-wrapper-3" required>
-                                </div>
-                            </div>
-
-                            <div class="overlap-2">
-                                <div class="password">
-                                    <div class="overlap-3">
-                                        <div class="kolom-pengisian">
-                                            <label class="text-wrapper-9" for="password">Masukan Password anda</label>
-                                            <div class="overlap-4">
-                                                <input type="password" name="password" id="password" placeholder="Ketik password anda" class="text-wrapper-6" required oninput="checkStrength(this.value)">
-                                                <div class="eye">
-                                                    <div class="group-wrapper">
-                                                        <div class="group"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span id="passwordError" class="popup-error"></span>
-                                            <div class="text-wrapper-8">
-                                                <label><input type="checkbox" name="remember"> Simpan data login ?</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="keamanan-password">
-                                        <div class="text-wrapper-10" id="strengthText"></div>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="daftar">
-                                <div class="text-wrapper-5">Daftar</div>
-                            </button>
-
-                            <div class="masuk">
-                                <a href="./Login_Unimap.html">
-                                    <div class="overlap-6">
-                                        <div class="rectangle-3"></div>
-                                        <div class="text-wrapper-11">Masuk</div>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <img class="awan" src="./img/Awan 1.svg" alt="awan1">
-                            <img class="img" src="./img/Awan 2.svg" alt="awan2">
-                            <div class="text-wrapper-12">Sudah Punya Akun ?</div>
-                            <p class="untuk-tetap">Untuk tetap terhubung dengan <br>kami silakan login dengan informasi pribadi anda</p>
-                    </div>
-                    <div class="text-wrapper-13">UniMap</div>
+    <div class="split-container">
+        <!-- Left Panel - Registration Form -->
+        <div class="left-panel">
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid p-0">
+                    <button class="navbar-toggler" type="button">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand ms-3" href="#">UniMap</a>
                 </div>
-                <img class="navigasi" src="./img/Navigasi.svg" alt="navigasi">
+            </nav>
+            
+            <!-- Registration Form -->
+            <div class="registration-content">
+                <h1 class="register-title">Register akun anda</h1>
+                <p class="register-subtitle">
+                    Dapatkan fitur tambahan seperti menyimpan lokasi favorit, 
+                    mendapatkan rekomendasi pribadi, dan banyak lagi.
+                </p>
+                
+                <!-- Alert Messages -->
+                <div id="alertContainer"></div>
+                
+                <form id="registerForm" method="POST" action="./Resgist.php">
+                    <!-- Email Field -->
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Alamat Email</label>
+                        <input type="email" class="form-control" id="email" name="email" 
+                               placeholder="12345678@gmail.com" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    
+                    <!-- Name Field -->
+                    <div class="mb-4">
+                        <label for="name" class="form-label">Masukan nama anda</label>
+                        <input type="text" class="form-control" id="name" name="name" 
+                               placeholder="ABCD_01" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    
+                    <!-- Password Field -->
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Masukan Password anda</label>
+                        <div class="password-container">
+                            <input type="password" class="form-control" id="password" name="password" 
+                                   placeholder="Type your password here" required>
+                            <span class="password-strength" id="passwordStrength"></span>
+                            <button type="button" class="password-toggle" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    
+                    <!-- Options -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="saveLogin" name="save_login">
+                            <label class="form-check-label" for="saveLogin">
+                                Simpan data login ?
+                            </label>
+                        </div>
+                        <a href="forgot-password.php" class="forgot-password">Lupa Password ?</a>
+                    </div>
+                    
+                    <!-- Register Button -->
+                    <button type="submit" class="btn btn-primary btn-register">
+                        <span class="spinner-border spinner-border-sm d-none" id="registerSpinner"></span>
+                        <span id="registerText">Daftar</span>
+                    </button>
+                </form>
             </div>
         </div>
+        
+        <!-- Right Panel - Login Prompt -->
+        <div class="right-panel">
+            <div class="decorative-circles">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+                <div class="circle circle-4"></div>
+            </div>
+            
+            <div class="content">
+                <h2>Sudah Punya Akun ?</h2>
+                <p>
+                    Untuk tetap terhubung dengan kami silakan login dengan info pribadi anda
+                </p>
+                <a href="./Login_Unimap.html" class="btn-login">Masuk</a>
+            </div>
+        </div>
+    </div>
 
-        <script>
-        function checkStrength(password) {
-            const strengthText = document.getElementById('strengthText');
-
-            const hasUpper = /[A-Z]/.test(password);
-            const hasLower = /[a-z]/.test(password);
-            const hasNumber = /[0-9]/.test(password);
-            const hasSpecial = /[^A-Za-z0-9]/.test(password);
-            const length = password.length;
-
-            let strength = 0;
-            if (hasLower) strength++;
-            if (hasUpper) strength++;
-            if (hasNumber) strength++;
-            if (hasSpecial) strength++;
-            if (length >= 8) strength++;
-
-            if (length === 0) {
-                strengthText.textContent = '';
-                strengthText.className = '';
-            } else if (strength <= 2) {
-                strengthText.textContent = 'Lemah';
-                strengthText.className = 'strength-weak';
-            } else if (strength === 3 || strength === 4) {
-                strengthText.textContent = 'Menengah';
-                strengthText.className = 'strength-medium';
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Password toggle functionality
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordField = document.getElementById('password');
+            const toggleIcon = this.querySelector('i');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
             } else {
-                strengthText.textContent = 'Kuat';
-                strengthText.className = 'strength-strong';
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
             }
-        }
-        </script>
-        <script>
-            document.querySelector("form").addEventListener("submit", function(e) {
-                const password = document.getElementById("password").value;
-                const errorBox = document.getElementById("passwordError");
+        });
 
-                const hasUpper = /[A-Z]/.test(password);
-                const hasLower = /[a-z]/.test(password);
-                const hasNumber = /[0-9]/.test(password);
-                const hasSpecial = /[^A-Za-z0-9]/.test(password);
-                const lengthOK = password.length >= 8;
+        // Password strength checker
+        document.getElementById('password').addEventListener('input', function() {
+            const password = this.value;
+            const strengthIndicator = document.getElementById('passwordStrength');
+            
+            if (password.length === 0) {
+                strengthIndicator.textContent = '';
+                return;
+            }
+            
+            let strength = 0;
+            
+            // Length check
+            if (password.length >= 8) strength++;
+            
+            // Uppercase check
+            if (/[A-Z]/.test(password)) strength++;
+            
+            // Lowercase check
+            if (/[a-z]/.test(password)) strength++;
+            
+            // Number check
+            if (/\d/.test(password)) strength++;
+            
+            // Special character check
+            if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) strength++;
+            
+            if (strength <= 2) {
+                strengthIndicator.textContent = 'Weak';
+                strengthIndicator.className = 'password-strength strength-weak';
+                this.classList.remove('is-valid');
+                this.classList.add('is-invalid');
+            } else if (strength <= 3) {
+                strengthIndicator.textContent = 'Medium';
+                strengthIndicator.className = 'password-strength strength-medium';
+                this.classList.remove('is-invalid');
+                this.classList.remove('is-valid');
+            } else {
+                strengthIndicator.textContent = 'Strong';
+                strengthIndicator.className = 'password-strength strength-strong';
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
 
-                if (!(hasUpper && hasLower && hasNumber && hasSpecial && lengthOK)) {
-                    e.preventDefault();
-                    let errors = [];
-                    if (!lengthOK) errors.push("minimal 8 karakter");
-                    if (!hasUpper) errors.push("huruf kapital");
-                    if (!hasLower) errors.push("huruf kecil");
-                    if (!hasNumber) errors.push("angka");
-                    if (!hasSpecial) errors.push("simbol (@$!%*?&)");
+        // Form validation
+        const form = document.getElementById('registerForm');
+        const emailField = document.getElementById('email');
+        const nameField = document.getElementById('name');
+        const passwordField = document.getElementById('password');
 
-                    errorBox.innerText = "Password harus mengandung " + errors.join(", ") + ".";
-                    errorBox.style.display = "block";
+        // Email validation
+        emailField.addEventListener('blur', function() {
+            const email = this.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email && !emailRegex.test(email)) {
+                this.classList.add('is-invalid');
+                this.nextElementSibling.textContent = 'Format email tidak valid';
+            } else if (email) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+
+        // Name validation
+        nameField.addEventListener('blur', function() {
+            const name = this.value.trim();
+            
+            if (name.length < 2) {
+                this.classList.add('is-invalid');
+                this.nextElementSibling.textContent = 'Nama minimal 2 karakter';
+            } else {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitBtn = document.getElementById('registerText');
+            const spinner = document.getElementById('registerSpinner');
+            const alertContainer = document.getElementById('alertContainer');
+            
+            // Show loading state
+            submitBtn.textContent = 'Mendaftar...';
+            spinner.classList.remove('d-none');
+            
+            // Clear previous alerts
+            alertContainer.innerHTML = '';
+            
+            // Send AJAX request
+            fetch('register.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showAlert('Registrasi berhasil! Silakan cek email untuk verifikasi.', 'success');
+                    form.reset();
+                    
+                    // Redirect after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
                 } else {
-                    errorBox.style.display = "none";
+                    showAlert(data.message || 'Registrasi gagal. Silakan coba lagi.', 'danger');
                 }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showAlert('Terjadi kesalahan. Silakan coba lagi.', 'danger');
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.textContent = 'Daftar';
+                spinner.classList.add('d-none');
             });
-        </script>
+        });
 
+        // Show alert function
+        function showAlert(message, type) {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            alertContainer.appendChild(alertDiv);
+            
+            // Auto dismiss after 5 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 5000);
+        }
+
+        // Auto-focus on email field
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('email').focus();
+        });
+    </script>
 </body>
-
 </html>
